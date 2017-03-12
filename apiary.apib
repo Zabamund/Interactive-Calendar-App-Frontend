@@ -16,38 +16,57 @@ This interactive calendar app allows users to:
 ## Login Collection [/api/login]
 
 ### Login [POST]
+Click on 'Login' button and gets back a USER object ('currentUserObject'). 
+The currentUserObj contains a TOKEN (randomly generated)
+
++ Request (application/json)
+    
+        {   
+            email: john@example.com,
+            password: 'password',
+       }
+    
 
 + Response 200 (application/json)
 
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
+        {
+            token: PQEWURPOQEIQPEWORIU
+            userID: 123456
+            name: 'John' 
+            surname: 'Doe'
+            email: 'john.doe@example.com'
+            password: 'XXX' (encrypted)
+            events: {
+                event1: {
+                    eventId: '123456'
+                    eventName: 'Beach Party'
+                    creator: {
+                        ...all infos again here?
                     }
-                ]
+                    
+                }, 
+                event2: {
+                    ...
+                },
             }
-        ]
+            friends: {
+                user1: {
+                    ...
+                },
+                user2: {
+                    ...
+                },
+            }
+        }
 
-### Create a New Question [POST]
+## Events Collection [/api/events]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
 
-+ Request (application/json)
+### Retrieve an Event [GET]
+
+
+
++ Response 200 (application/json)
 
         {
             "question": "Favourite programming language?",
