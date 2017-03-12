@@ -21,12 +21,3 @@ Agile, first version aims at fully functional list of events (no calendar displa
 * Show participant (other User, from event)
 
 ![](Annotated_Layout_with_Routing_1.jpg)
-
-## OOD
-
-- Add Julie's file
-![](ood_fields_1.jpg)
-
-## OOP
-
-TBD ;)
