@@ -5,9 +5,10 @@ class EventId extends Component {
 
     render () {
         // console.log('this.props.params.eventId ', this.props.params.eventId);
+        console.log('props inside EventId', this.props.params.eventId);
         return (
             <div className="EventId">
-                <h3>Event Id</h3>
+                <h3>Event number {this.props.params.eventId}</h3>
             </div>
         )
     }
