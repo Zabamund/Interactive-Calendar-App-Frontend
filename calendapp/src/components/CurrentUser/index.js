@@ -48,6 +48,7 @@ class CurrentUser extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            token: '',
             eventId: ''
         };
     }
@@ -65,18 +66,13 @@ class CurrentUser extends Component {
         this.props.router.push('/events/addEvent')
     }
 
-    goToEvent = (event) => {
-        event.preventDefault();
-        this.setState({
-            eventId:'bla'
-        })
-        // console.log('this.props ',this.props);
-        console.log('this.state ', this.state);
-        this.props.router.push('/events/' + this.props.login[0].eventId)
+    goToEvent = (index) => {
+        // event.preventDefault();
+        //require token
+        this.props.router.push('/events/' + this.props.login[index].eventId)
     }
 
     render() {
-        console.log('this.state ', this.state);
         return (
             <div className="CurrentUser">
                 <div style={userName} className="App-header">
@@ -93,8 +89,7 @@ class CurrentUser extends Component {
                         {this.props.login.map((calendarEvent, index) => {
                             return <ListItem
                                 key={index}
-                                value={this.props.login[index].eventId}
-                                onClick={this.goToEvent}
+                                onClick={this.goToEvent.bind(this, index)}
                                 primaryText={this.props.login[index].eventName}
                             />;
                         })}
