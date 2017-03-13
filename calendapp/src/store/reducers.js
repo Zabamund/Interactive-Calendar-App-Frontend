@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import { LOGIN, CURRENTUSER, ADDEVENT, EVENTID, USERID, REGISTERUSER } from './actions';
 
-const defaultEvents = {
-    event123: {
+const defaultEvents = [
+    {
         eventId: 123,
-        eventName: "party",
+        eventName: "party 1",
         creator: "John Doe",
         date: '2017-03-15',
         time: '21:06:42.510',
@@ -13,10 +13,9 @@ const defaultEvents = {
         location: {locationId: 123},
         open: false
     },
-    event124:
     {
         eventId: 124,
-        eventName: "party",
+        eventName: "party 2",
         creator: "John Doe",
         date: '2017-03-16',
         time: '21:06:42.510',
@@ -25,10 +24,9 @@ const defaultEvents = {
         location: {locationId: 123},
         open: false
     },
-    event125:
     {
         eventId: 125,
-        eventName: "party",
+        eventName: "party 3",
         creator: "John Doe",
         date: '2017-03-17',
         time: '21:06:42.510',
@@ -37,7 +35,7 @@ const defaultEvents = {
         location: {locationId: 123},
         open: false
     }
-}
+]
 
 // one reducer per component
 function loginReducer(state = defaultEvents, action) {

@@ -67,12 +67,16 @@ class CurrentUser extends Component {
 
     goToEvent = (event) => {
         event.preventDefault();
-        // go to event by id page
-        this.props.router.push('/events/:eventId')
+        this.setState({
+            eventId:'bla'
+        })
+        // console.log('this.props ',this.props);
+        console.log('this.state ', this.state);
+        this.props.router.push('/events/' + this.props.login[0].eventId)
     }
 
     render() {
-        console.log(this.props);
+        console.log('this.state ', this.state);
         return (
             <div className="CurrentUser">
                 <div style={userName} className="App-header">
@@ -86,10 +90,14 @@ class CurrentUser extends Component {
                 <div className="eventsCalendarContainer" style={eventsCalendar}>
                     <List className="eventList">
                         {/*only display 10 events*/}
-                        <ListItem primaryText="event nb 1" />
-                        <ListItem primaryText="event nb 2" />
-                        <ListItem primaryText="event nb 3" />
-
+                        {this.props.login.map((calendarEvent, index) => {
+                            return <ListItem
+                                key={index}
+                                value={this.props.login[index].eventId}
+                                onClick={this.goToEvent}
+                                primaryText={this.props.login[index].eventName}
+                            />;
+                        })}
                     </List>
                     <Paper className="calendar" style={calendarStyle}>
                         Calendar
