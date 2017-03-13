@@ -4,33 +4,33 @@ import { LOGIN, CURRENTUSER, ADDEVENT, EVENTID, USERID, REGISTERUSER } from './a
 const defaultEvents = [
     {
         eventId: 123,
-        eventName: "party 1",
+        eventName: "Block Party",
         creator: "John Doe",
         date: '2017-03-15',
         time: '21:06:42.510',
-        description: "beach party",
+        description: "BYOB block party",
         participants: [{name: "John Doe"}, {name: "Jane Doe"}],
         location: {locationId: 123},
         open: false
     },
     {
         eventId: 124,
-        eventName: "party 2",
+        eventName: "Lan Party",
         creator: "John Doe",
         date: '2017-03-16',
         time: '21:06:42.510',
-        description: "beach party",
+        description: "Gaming",
         participants: [{name: "John Doe"}, {name: "Jane Doe"}],
         location: {locationId: 123},
         open: false
     },
     {
         eventId: 125,
-        eventName: "party 3",
+        eventName: "Beach Party",
         creator: "John Doe",
         date: '2017-03-17',
         time: '21:06:42.510',
-        description: "beach party",
+        description: "A relaxed party on the beach",
         participants: [{name: "John Doe"}, {name: "Jane Doe"}],
         location: {locationId: 123},
         open: false
