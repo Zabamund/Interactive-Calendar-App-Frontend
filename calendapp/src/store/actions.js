@@ -42,7 +42,6 @@ export const login = (loginUser) => { // action Creator
                 } else {
                     console.log('the email and password combination was wrong');
                 }
-                console.log(currentUserObj);
                 dispatch({
                     type: LOGIN,
                     data: currentUserObj
