@@ -26,10 +26,10 @@ ReactDOM.render(
             <Router history={ browserHistory }>
                 <Route path="/" component={ App } />
                 <Route path="/users/currentUser" component={ CurrentUser } />
-                <Route path="/events/addEvent" component={ AddEvent } />
-                <Route path="/events/eventId" component={ EventId } />
                 <Route path="/users/userId" component={ UserId } />
                 <Route path="/users/registerForm" component={ RegisterForm } />
+                <Route path="/events/addEvent" component={ AddEvent } />
+                <Route path="/events/:eventId" component={ EventId } />
             </Router>
         </MuiThemeProvider>
     </Provider>,
