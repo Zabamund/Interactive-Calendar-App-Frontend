@@ -1,44 +1,9 @@
 import { combineReducers } from 'redux';
 import { LOGIN, CURRENTUSER, ADDEVENT, EVENTID, USERID, REGISTERUSER } from './actions';
+import defaultState from './constants.js'
 
-const defaultEvents = [
-    {
-        eventId: 123,
-        eventName: "Block Party",
-        creator: "John Doe",
-        date: '2017-03-15',
-        time: '21:06:42.510',
-        description: "BYOB block party",
-        participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-        location: {locationId: 123},
-        open: false
-    },
-    {
-        eventId: 124,
-        eventName: "Lan Party",
-        creator: "John Doe",
-        date: '2017-03-16',
-        time: '21:06:42.510',
-        description: "Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning ",
-        participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-        location: {locationId: 123},
-        open: false
-    },
-    {
-        eventId: 125,
-        eventName: "Beach Party",
-        creator: "John Doe",
-        date: '2017-03-17',
-        time: '21:06:42.510',
-        description: "A relaxed party on the beach",
-        participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-        location: {locationId: 123},
-        open: false
-    }
-]
-
-// one reducer per component
-function loginReducer(state = defaultEvents, action) {
+// one reducer per property of the Redux State
+function loginReducer(state = defaultState, action) {
     switch (action.type) {
         case LOGIN:
             // return action.data;
