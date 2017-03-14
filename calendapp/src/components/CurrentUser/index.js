@@ -94,11 +94,14 @@ class CurrentUser extends Component {
                     <List className="eventList">
                         {/*only display 10 events*/}
                         {this.props.events.events.map((calendarEvent, index) => {
+                          console.log('INDEX', this.props.events.events[index].date);
+
                           return (
                             <ListItem
                                 key={index}
                                 onClick={this.goToEvent.bind(this, index)}
-                                primaryText={this.props.events.events[index].eventName}
+                                primaryText= {this.props.events.events[index].eventName}
+                                secondaryText={this.props.events.events[index].date}
                             />
                           )
                         })}

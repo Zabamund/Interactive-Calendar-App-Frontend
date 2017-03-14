@@ -38,12 +38,13 @@ const EventImage = {
 
 class EventId extends Component {
     render () {
-      {console.log('this.props inside EventID', this.props)}
-        // console.log('this.props.login[this.props.params.eventId]', );
+
+      console.log('this.props.events.events[this.props.params.eventId].location', this.props.events.events[this.props.params.eventId].location.city);
         return(
           <div className="EventCard">
             <div className="Party-header">
-              <h1>Event: {this.props.events.events[this.props.params.eventId].eventName}</h1>
+              <h1> {this.props.events.events[this.props.params.eventId].eventName +", "+ this.props.events.events[this.props.params.eventId].location.city} </h1>
+              <h3> {this.props.events.events[this.props.params.eventId].date} </h3>
             </div>
             <div className="Content" style={Content} >
               <Paper style={PartList} zDepth={3}>
