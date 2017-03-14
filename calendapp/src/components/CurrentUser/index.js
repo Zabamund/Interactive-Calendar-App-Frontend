@@ -93,7 +93,6 @@ class CurrentUser extends Component {
                 <div className="eventsCalendarContainer" style={eventsCalendar}>
                     <List className="eventList">
                         {/*only display 10 events*/}
-                        {console.log('this.props ', this.props)}
                         {this.props.events.events.map((calendarEvent, index) => {
                           return (
                             <ListItem
@@ -104,7 +103,7 @@ class CurrentUser extends Component {
                           )
                         })}
                     </List>
-                    <Paper className="calendar" style={calendarStyle}>
+                    <Paper className="calendar" style={calendarStyle} zDepth={3}>
                         Calendar
                     </Paper>
                 </div>
