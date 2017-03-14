@@ -1,10 +1,11 @@
 // actions
 export const LOGIN = 'login';
-export const CURRENTUSER = 'currentUser';
-export const ADDEVENT = 'addEvent';
 export const EVENTID = 'eventId';
 export const USERID = 'userId';
-export const REGISTERUSER = 'registerUser';
+export const CURRENTUSER = 'currentUser';
+
+// export const ADDEVENT = 'addEvent';
+// export const REGISTERUSER = 'registerUser';
 
 // action creators
 export const login = (loginUser) => { // action Creator
@@ -39,7 +40,6 @@ export const login = (loginUser) => { // action Creator
             .then(currentUserObj => {
                 if (currentUserObj.token) {
                     console.log('login successful');
-                    console.log(currentUserObj);
                 } else {
                     console.log('the email and password combination was wrong');
                 }

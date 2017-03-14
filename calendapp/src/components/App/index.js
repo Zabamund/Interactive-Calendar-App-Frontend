@@ -43,12 +43,12 @@ class App extends Component {
                 });
             })
             .then(() => {
-                //add if-statement to check token - right now, redirected anyway
-                console.log('this.state ', this.state);
-                console.log('this.props ', this.props);
-                this.props.router.push('/users/currentUser')
+                if (this.props.currentUser.currentUser.token) {
+                    this.props.router.push('/users/currentUser')
+                } else {
+                    alert('your login attempt failed');
+                }
             })
-
     };
 
     registerForm = (event) => {

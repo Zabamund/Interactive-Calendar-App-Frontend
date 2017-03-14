@@ -1,92 +1,41 @@
 import { combineReducers } from 'redux';
-import { LOGIN, CURRENTUSER, ADDEVENT, EVENTID, USERID, REGISTERUSER } from './actions';
+import { LOGIN, EVENTID, USERID, CURRENTUSER } from './actions';
+import { defaultState } from './constants.js'
 
-const defaultEvents = [
-    {
-        eventId: 123,
-        eventName: "Block Party",
-        creator: "John Doe",
-        date: '2017-03-15',
-        time: '21:06:42.510',
-        description: "BYOB block party",
-        participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-        location: {locationId: 123},
-        open: false
-    },
-    {
-        eventId: 124,
-        eventName: "Lan Party",
-        creator: "John Doe",
-        date: '2017-03-16',
-        time: '21:06:42.510',
-        description: "Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning ",
-        participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-        location: {locationId: 123},
-        open: false
-    },
-    {
-        eventId: 125,
-        eventName: "Beach Party",
-        creator: "John Doe",
-        date: '2017-03-17',
-        time: '21:06:42.510',
-        description: "A relaxed party on the beach",
-        participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-        location: {locationId: 123},
-        open: false
-    }
-]
-
-// one reducer per component
-function loginReducer(state = defaultEvents, action) {
+// one reducer per property of the Redux State
+function currentUserReducer(state = defaultState, action) {
     switch (action.type) {
         case LOGIN:
-            // return action.data;
-            return state;
-        default:
-            return state;
-    }
-}
-
-function currentUserReducer(state = {}, action) {
-    switch (action.type) {
+        let newState = Object.assign({}, state);
+        // console.log('action ', action);
+        newState.currentUser.token = action.data.token;
+        // console.log('newState after token ', newState);
+            return newState;
         case CURRENTUSER:
+            // return token
+            // current user object
             return state;
         default:
             return state;
     }
 }
 
-function addEventReducer(state = {}, action) {
-    switch (action.type) {
-        case ADDEVENT:
-            return state;
-        default:
-            return state;
-    }
-}
-
-function eventIdReducer(state = {}, action) {
+function eventsReducer(state = defaultState, action) {
     switch (action.type) {
         case EVENTID:
+            // return token
+            // return event(id) object
             return state;
         default:
             return state;
     }
 }
 
-function userIdReducer(state = {}, action) {
+function usersReducer(state = defaultState, action) {
     switch (action.type) {
         case USERID:
-            return state;
-        default:
-            return state;
-    }
-}
-
-function registerUserReducer(state = {}, action) {
-    switch (action.type) {
-        case REGISTERUSER:
+            //token
+            // UserID object
             return state;
         default:
             return state;
@@ -95,12 +44,9 @@ function registerUserReducer(state = {}, action) {
 
 // combine all reducers into one and export that single one
 const reducer = combineReducers({
-    login: loginReducer,
     currentUser: currentUserReducer,
-    addEvent: addEventReducer,
-    eventId: eventIdReducer,
-    userId: userIdReducer,
-    registerUser: registerUserReducer,
+    events: eventsReducer,
+    users: usersReducer
 });
 
 export default reducer;
