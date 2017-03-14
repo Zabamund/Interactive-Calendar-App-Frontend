@@ -1,0 +1,17 @@
+.Party-header {
+  background-image: url("party.jpg");
+  background-size: 100%;
+  height: 100%;
+  padding: 20px;
+  color: white;
+}
+
+.DescriptionAndImage {
+  display:flex;
+  flex-wrap: row-wrap;
+}
+
+.eventPic {
+  background-image: url("party-placeholder.png");
+  display: inline-block;
+}

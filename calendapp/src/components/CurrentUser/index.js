@@ -69,10 +69,19 @@ class CurrentUser extends Component {
     goToEvent = (index) => {
         // event.preventDefault();
         //require token
-        this.props.router.push('/events/' + this.props.login[index].eventId)
+        this.props.router.push('/events/' + index)
     }
+/*
+<Paper>
+  <List>
+    <EventItem key = {index} onClick={this.goToEvent.bind(this, index)} primaryText={this.props.login[index].eventName}/>
+  </List>
+</Paper>
 
+*/
     render() {
+      console.log(this.props.login);
+
         return (
             <div className="CurrentUser">
                 <div style={userName} className="App-header">
@@ -87,11 +96,13 @@ class CurrentUser extends Component {
                     <List className="eventList">
                         {/*only display 10 events*/}
                         {this.props.login.map((calendarEvent, index) => {
-                            return <ListItem
+                          return (
+                            <ListItem
                                 key={index}
                                 onClick={this.goToEvent.bind(this, index)}
                                 primaryText={this.props.login[index].eventName}
-                            />;
+                            />
+                          )
                         })}
                     </List>
                     <Paper className="calendar" style={calendarStyle}>
@@ -104,6 +115,7 @@ class CurrentUser extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log('state.login', state.login);
     return state;
 }
 
