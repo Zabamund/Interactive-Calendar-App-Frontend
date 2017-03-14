@@ -80,8 +80,6 @@ class CurrentUser extends Component {
 
 */
     render() {
-      console.log(this.props.login);
-
         return (
             <div className="CurrentUser">
                 <div style={userName} className="App-header">
@@ -115,7 +113,6 @@ class CurrentUser extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('state.login', state.login);
     return state;
 }
 
