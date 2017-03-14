@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
 import { LOGIN, CURRENTUSER, ADDEVENT, EVENTID, USERID, REGISTERUSER } from './actions';
-import defaultState from './constants.js'
+import { defaultState } from './constants.js'
 
 // one reducer per property of the Redux State
-function loginReducer(state = defaultState, action) {
+function currentUserReducer(state = defaultState, action) {
     switch (action.type) {
         case LOGIN:
+        console.log('defaultState ', state);
             // return action.data;
             return state;
         default:
@@ -13,25 +14,7 @@ function loginReducer(state = defaultState, action) {
     }
 }
 
-function currentUserReducer(state = {}, action) {
-    switch (action.type) {
-        case CURRENTUSER:
-            return state;
-        default:
-            return state;
-    }
-}
-
-function addEventReducer(state = {}, action) {
-    switch (action.type) {
-        case ADDEVENT:
-            return state;
-        default:
-            return state;
-    }
-}
-
-function eventIdReducer(state = {}, action) {
+function eventsReducer(state = defaultState, action) {
     switch (action.type) {
         case EVENTID:
             return state;
@@ -40,18 +23,9 @@ function eventIdReducer(state = {}, action) {
     }
 }
 
-function userIdReducer(state = {}, action) {
+function usersReducer(state = defaultState, action) {
     switch (action.type) {
-        case USERID:
-            return state;
-        default:
-            return state;
-    }
-}
-
-function registerUserReducer(state = {}, action) {
-    switch (action.type) {
-        case REGISTERUSER:
+        case EVENTID:
             return state;
         default:
             return state;
@@ -60,12 +34,9 @@ function registerUserReducer(state = {}, action) {
 
 // combine all reducers into one and export that single one
 const reducer = combineReducers({
-    login: loginReducer,
     currentUser: currentUserReducer,
-    addEvent: addEventReducer,
-    eventId: eventIdReducer,
-    userId: userIdReducer,
-    registerUser: registerUserReducer,
+    events: eventsReducer,
+    users: usersReducer
 });
 
 export default reducer;
