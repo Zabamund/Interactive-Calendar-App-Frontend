@@ -24,14 +24,12 @@ class App extends Component {
         this.setState({
             email:event.currentTarget.value
         })
-        console.log(this.state);
     };
 
     passwordInput = (event) => {
         this.setState({
             password:event.currentTarget.value
         })
-        console.log(this.state);
     };
 
     logonForm = (event) => {
@@ -43,9 +41,14 @@ class App extends Component {
                     email:'',
                     password:''
                 });
+            })
+            .then(() => {
                 //add if-statement to check token - right now, redirected anyway
+                console.log('this.state ', this.state);
+                console.log('this.props ', this.props);
                 this.props.router.push('/users/currentUser')
             })
+
     };
 
     registerForm = (event) => {

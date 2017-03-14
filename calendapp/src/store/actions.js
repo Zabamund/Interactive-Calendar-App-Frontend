@@ -39,6 +39,7 @@ export const login = (loginUser) => { // action Creator
             .then(currentUserObj => {
                 if (currentUserObj.token) {
                     console.log('login successful');
+                    console.log(currentUserObj);
                 } else {
                     console.log('the email and password combination was wrong');
                 }

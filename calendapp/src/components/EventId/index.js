@@ -45,8 +45,8 @@ class EventId extends Component {
             <div className="Party-header">
               <h1>Event: {this.props.login[this.props.params.eventId].eventName}</h1>
             </div>
-            <div className="Content" style = {Content} >
-              <Paper style = {PartList} zDepth={3}>
+            <div className="Content" style={Content} >
+              <Paper style={PartList} zDepth={3}>
                 <h3>Participants</h3>
                   <List className="participantsList">
                     {(this.props.login[this.props.params.eventId].participants)
@@ -62,9 +62,9 @@ class EventId extends Component {
                     }
                   </List>
               </Paper>
-              <Paper style = {DescriptionAndImage} zDepth={3}>
+              <Paper style={DescriptionAndImage} zDepth={3}>
                 <h3>{this.props.login[this.props.params.eventId].eventName}</h3>
-                <img src="http://www.biscuitfactoryevents.com/assets/COMINGSOON.jpg" alt="missing image" style = {EventImage}/>
+                <img src="http://www.biscuitfactoryevents.com/assets/COMINGSOON.jpg" alt="missingFile" style={EventImage}/>
               <Paper zDepth={1}> {this.props.login[this.props.params.eventId].description} </Paper>
               </Paper>
             </div>
