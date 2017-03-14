@@ -19,7 +19,7 @@ const defaultEvents = [
         creator: "John Doe",
         date: '2017-03-16',
         time: '21:06:42.510',
-        description: "Gaming",
+        description: "Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning ",
         participants: [{name: "John Doe"}, {name: "Jane Doe"}],
         location: {locationId: 123},
         open: false
