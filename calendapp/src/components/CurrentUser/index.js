@@ -93,13 +93,13 @@ class CurrentUser extends Component {
                 <div className="eventsCalendarContainer" style={eventsCalendar}>
                     <List className="eventList">
                         {/*only display 10 events*/}
-                        console.log('this.props ', this.props);
-                        {this.props.login.map((calendarEvent, index) => {
+                        {console.log('this.props ', this.props)}
+                        {this.props.events.events.map((calendarEvent, index) => {
                           return (
                             <ListItem
                                 key={index}
                                 onClick={this.goToEvent.bind(this, index)}
-                                primaryText={this.props.login[index].eventName}
+                                primaryText={this.props.events.events[index].eventName}
                             />
                           )
                         })}
@@ -118,3 +118,13 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(CurrentUser);
+
+// {this.props.login.map((calendarEvent, index) => {
+//   return (
+//     <ListItem
+//         key={index}
+//         onClick={this.goToEvent.bind(this, index)}
+//         primaryText={this.props.login[index].eventName}
+//     />
+//   )
+// })}
