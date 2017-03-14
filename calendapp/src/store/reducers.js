@@ -6,13 +6,15 @@ import { defaultState } from './constants.js'
 function currentUserReducer(state = defaultState, action) {
     switch (action.type) {
         case LOGIN:
-            // must fetch and return token and user current user object
-            // console.log('defaultState ', state);
-            // console.log('action ', action);
-            return state;
+        let newState = Object.assign({}, state);
+        // console.log('action ', action);
+        newState.currentUser.token = action.data.token;
+        // console.log('newState after token ', newState);
+            return newState;
         case CURRENTUSER:
             // return token
             // current user object
+            return state;
         default:
             return state;
     }

@@ -93,6 +93,7 @@ class CurrentUser extends Component {
                 <div className="eventsCalendarContainer" style={eventsCalendar}>
                     <List className="eventList">
                         {/*only display 10 events*/}
+                        console.log('this.props ', this.props);
                         {this.props.login.map((calendarEvent, index) => {
                           return (
                             <ListItem
