@@ -93,18 +93,20 @@ class CurrentUser extends Component {
                 <div className="eventsCalendarContainer" style={eventsCalendar}>
                     <List className="eventList">
                         {/*only display 10 events*/}
-                        {console.log('this.props ', this.props)}
                         {this.props.events.events.map((calendarEvent, index) => {
+                          console.log('INDEX', this.props.events.events[index].date);
+
                           return (
                             <ListItem
                                 key={index}
                                 onClick={this.goToEvent.bind(this, index)}
-                                primaryText={this.props.events.events[index].eventName}
+                                primaryText= {this.props.events.events[index].eventName}
+                                secondaryText={this.props.events.events[index].date}
                             />
                           )
                         })}
                     </List>
-                    <Paper className="calendar" style={calendarStyle}>
+                    <Paper className="calendar" style={calendarStyle} zDepth={3}>
                         Calendar
                     </Paper>
                 </div>

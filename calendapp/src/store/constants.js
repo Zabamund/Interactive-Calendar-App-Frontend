@@ -15,7 +15,10 @@ export const defaultState = {
                 time: '21:06:42.510',
                 description: "BYOB block party",
                 participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-                location: {locationId: 123},
+                location: {
+                  locationId: 123,
+                  city: 'Zurich',
+                },
                 open: false
             },
             {
@@ -26,7 +29,10 @@ export const defaultState = {
                 time: '21:06:42.510',
                 description: "Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning ",
                 participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-                location: {locationId: 123},
+                location: {
+                  locationId: 123,
+                  city: 'London',
+                },
                 open: false
             },
             {
@@ -37,7 +43,10 @@ export const defaultState = {
                 time: '21:06:42.510',
                 description: "A relaxed party on the beach",
                 participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-                location: {locationId: 123},
+                location: {
+                  locationId: 123,
+                  city: 'Rimini',
+                },
                 open: false
             }
         ],
@@ -55,7 +64,10 @@ export const defaultState = {
                         time: '21:06:42.510',
                         description: "A relaxed party on the beach",
                         participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-                        location: {locationId: 123},
+                        location: {
+                          locationId: 123,
+                          city: 'Rimini',
+                        },
                         open: false
                     }
                 ]
@@ -71,7 +83,10 @@ export const defaultState = {
             time: '21:06:42.510',
             description: "BYOB block party",
             participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-            location: {locationId: 123},
+            location: {
+              locationId: 123,
+              city: 'Zurich',
+            },
             open: false
         },
         {
@@ -82,7 +97,10 @@ export const defaultState = {
             time: '21:06:42.510',
             description: "Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning ",
             participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-            location: {locationId: 123},
+            location: {
+              locationId: 123,
+              city: 'London',
+            },
             open: false
         },
         {
@@ -93,7 +111,10 @@ export const defaultState = {
             time: '21:06:42.510',
             description: "A relaxed party on the beach",
             participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-            location: {locationId: 123},
+            location: {
+              locationId: 123,
+              city: 'Rimini',
+            },
             open: false
         }
     ],
@@ -114,7 +135,10 @@ export const defaultState = {
                     time: '21:06:42.510',
                     description: "BYOB block party",
                     participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-                    location: {locationId: 123},
+                    location: {
+                      locationId: 123,
+                      city: 'Zurich',
+                    },
                     open: false
                 },
                 {
@@ -125,7 +149,10 @@ export const defaultState = {
                     time: '21:06:42.510',
                     description: "Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning ",
                     participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-                    location: {locationId: 123},
+                    location: {
+                      locationId: 123,
+                      city: 'London',
+                    },
                     open: false
                 },
                 {
@@ -136,7 +163,10 @@ export const defaultState = {
                     time: '21:06:42.510',
                     description: "A relaxed party on the beach",
                     participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-                    location: {locationId: 123},
+                    location: {
+                      locationId: 123,
+                      city: 'Rimini',
+                    },
                     open: false
                 }
             ],
@@ -154,7 +184,10 @@ export const defaultState = {
                             time: '21:06:42.510',
                             description: "A relaxed party on the beach",
                             participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-                            location: {locationId: 123},
+                            location: {
+                              locationId: 123,
+                              city: 'Rimini',
+                            },
                             open: false
                         }
                     ]
@@ -177,7 +210,10 @@ export const defaultState = {
                     time: '21:06:42.510',
                     description: "A relaxed party on the beach",
                     participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-                    location: {locationId: 123},
+                    location: {
+                      locationId: 123,
+                      city: 'Rimini',
+                    },
                     open: false
                 }
             ],
@@ -195,7 +231,10 @@ export const defaultState = {
                             time: '21:06:42.510',
                             description: "BYOB block party",
                             participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-                            location: {locationId: 123},
+                            location: {
+                              locationId: 123,
+                              city: 'Zurich',
+                            },
                             open: false
                         },
                         {
@@ -206,7 +245,10 @@ export const defaultState = {
                             time: '21:06:42.510',
                             description: "Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning,Gaming all night long until morning ",
                             participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-                            location: {locationId: 123},
+                            location: {
+                              locationId: 123,
+                              city: 'London',
+                            },
                             open: false
                         },
                         {
@@ -217,7 +259,10 @@ export const defaultState = {
                             time: '21:06:42.510',
                             description: "A relaxed party on the beach",
                             participants: [{name: "John Doe"}, {name: "Jane Doe"}],
-                            location: {locationId: 123},
+                            location: {
+                              locationId: 123,
+                              city: 'Rimini',
+                            },
                             open: false
                         }
                     ]

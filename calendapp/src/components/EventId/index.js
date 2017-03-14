@@ -38,18 +38,19 @@ const EventImage = {
 
 class EventId extends Component {
     render () {
-        console.log('this.props.login[this.props.params.eventId]', );
-        // console.log('props inside EventId', this.props);
+
+      console.log('this.props.events.events[this.props.params.eventId].location', this.props.events.events[this.props.params.eventId].location.city);
         return(
           <div className="EventCard">
             <div className="Party-header">
-              <h1>Event: {this.props.login[this.props.params.eventId].eventName}</h1>
+              <h1> {this.props.events.events[this.props.params.eventId].eventName +", "+ this.props.events.events[this.props.params.eventId].location.city} </h1>
+              <h3> {this.props.events.events[this.props.params.eventId].date} </h3>
             </div>
             <div className="Content" style={Content} >
               <Paper style={PartList} zDepth={3}>
                 <h3>Participants</h3>
                   <List className="participantsList">
-                    {(this.props.login[this.props.params.eventId].participants)
+                    {(this.props.events.events[this.props.params.eventId].participants)
                         .map((participant, index) => {
                         console.log(participant.name);
                         return(
@@ -63,9 +64,9 @@ class EventId extends Component {
                   </List>
               </Paper>
               <Paper style={DescriptionAndImage} zDepth={3}>
-                <h3>{this.props.login[this.props.params.eventId].eventName}</h3>
-                <img src="http://www.biscuitfactoryevents.com/assets/COMINGSOON.jpg" alt="missingFile" style={EventImage}/>
-              <Paper zDepth={1}> {this.props.login[this.props.params.eventId].description} </Paper>
+                <h3>{this.props.events.events[this.props.params.eventId].eventName}</h3>
+                <img src="http://www.samuitimes.com/wp-content/uploads/2014/10/beach-party-ban.jpg" alt="missingFile" style={EventImage}/>
+              <Paper zDepth={1}> {this.props.events.events[this.props.params.eventId].description} </Paper>
               </Paper>
             </div>
           </div>
