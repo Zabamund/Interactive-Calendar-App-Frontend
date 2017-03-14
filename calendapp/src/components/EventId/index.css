@@ -5,13 +5,3 @@
   padding: 20px;
   color: white;
 }
-
-.DescriptionAndImage {
-  display:flex;
-  flex-wrap: row-wrap;
-}
-
-.eventPic {
-  background-image: url("party-placeholder.png");
-  display: inline-block;
-}

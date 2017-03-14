@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {List, ListItem} from 'material-ui/List';
 import Paper from 'material-ui/Paper';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-
+import {Card, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
 import './index.css';
 
@@ -26,6 +25,9 @@ const Description = {
   height: '60vh',
   margin: '20px',
   textAlign: 'center',
+  alignItems: 'center',
+  display: 'flex',
+
 }
 
 class EventId extends Component {
@@ -55,10 +57,9 @@ class EventId extends Component {
                   </List>
               </Paper>
               <Paper style = {Description} zDepth={3}>
-                <h3>Event Info</h3>
                 <Card>
                   <CardMedia overlay={<CardTitle title="Overlay title" />} >
-                    <img src="images/nature-600-337.jpg" />
+                    <img src="party-placeholder.png"/>
                   </CardMedia>
                   <CardText>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
