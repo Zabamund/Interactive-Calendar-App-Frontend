@@ -80,10 +80,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(EventId);
-
-
-/*
-title= {this.props.login[this.props.params.eventId].eventName}
-
-
-*/
