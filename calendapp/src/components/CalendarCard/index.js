@@ -9,7 +9,7 @@ class CalendarCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      expanded: false,
+        expanded: false,
     };
   }
 
@@ -33,44 +33,42 @@ class CalendarCard extends React.Component {
   goToEvent = (index) => {
       //require token
     this.props.routerProps.push('/events/' + index)
-    console.log('my index is: ', index);
   }
 
   render() {
-      console.log('this.props inside cal card ', this.props);
     return (
-      <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
-        <CardHeader
-          title={this.props.title}
-          subtitle={this.props.subtitle}
-          avatar={this.props.avatar}
-          actAsExpander={true}
-          showExpandableButton={true}
-        />
-        <CardText>
-          <Toggle
-            toggled={this.state.expanded}
-            onToggle={this.handleToggle}
-            labelPosition="right"
-            label={this.props.description}
-          />
-        </CardText>
-        <CardMedia
-          expandable={true}
-          overlay={<CardTitle title={this.props.title} subtitle={this.props.subtitle} />}
-        >
-          <img src={this.props.avatar} alt="Avatar of the Event"/>
-        </CardMedia>
-        <CardTitle title={this.props.title} subtitle={this.props.subtitle} expandable={true} />
-        <CardText expandable={true}>
-          Click here to join! (Button to be added)
-        </CardText>
-        <CardActions>
-          <FlatButton label="Expand" onTouchTap={this.handleExpand} />
-          <FlatButton label="Reduce" onTouchTap={this.handleReduce} />
-          <FlatButton label="Show Participants" onClick={this.goToEvent.bind(this, this.props.index)}/>
-        </CardActions>
-      </Card>
+        <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
+            <CardHeader
+                title={this.props.title}
+                subtitle={this.props.subtitle}
+                avatar={this.props.avatar}
+                actAsExpander={true}
+                showExpandableButton={true}
+            />
+            <CardText>
+              <Toggle
+                toggled={this.state.expanded}
+                onToggle={this.handleToggle}
+                labelPosition="right"
+                label={this.props.description}
+              />
+            </CardText>
+            <CardMedia
+                expandable={true}
+                overlay={<CardTitle title={this.props.title} subtitle={this.props.subtitle} />}
+            >
+                <img src={this.props.avatar} alt="Avatar of the Event"/>
+            </CardMedia>
+            <CardTitle title={this.props.title} subtitle={this.props.subtitle} expandable={true} />
+            <CardText expandable={true}>
+                Click here to join! (Button to be added)
+            </CardText>
+            <CardActions>
+                <FlatButton label="Expand" onTouchTap={this.handleExpand} />
+                <FlatButton label="Reduce" onTouchTap={this.handleReduce} />
+                <FlatButton label="Show Participants" onClick={this.goToEvent.bind(this, this.props.index)}/>
+            </CardActions>
+        </Card>
     );
   }
 }

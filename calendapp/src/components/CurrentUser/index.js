@@ -6,37 +6,7 @@ import {List} from 'material-ui/List';
 
 import CalendarCard from '../CalendarCard';
 
-// import { styleRaisedButton, stylePaper, userName, commandBar, eventsCalendar, calendarStyle } from './constants.js'
-// why could we not import these styles from './constants.js'
-
-const styleRaisedButton = { margin: 12 };
-
-const stylePaper = {
-  height: 100,
-  width: 100,
-  margin: 20,
-  textAlign: 'center',
-};
-
-const userName = { textAlign: 'center' };
-
-const commandBar = {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    alignItems: 'center'
-};
-
-const eventsListContainer = {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-};
-
-const eventList = {
-  width: '60%',
-}
+import { styleRaisedButton, stylePaper, userName, commandBar, eventsListContainer, eventList } from './constants.js';
 
 class CurrentUser extends Component {
 
@@ -64,32 +34,32 @@ class CurrentUser extends Component {
     render() {
         return (
             <div className="CurrentUser">
-              <div style={userName} className="App-header">
-                  <h2>Current User</h2>{/*add actual userName with this.props.currentUser.firstName*/}
-              </div>
-              <div style={commandBar} className="headerBar">
-                  <RaisedButton onClick={this.logout} label="Logout" secondary={true} style={styleRaisedButton}/>
-                  <RaisedButton onClick={this.addEvent} label="Add Event" primary={true} style={styleRaisedButton}/>
-                  <Paper style={stylePaper} zDepth={3}>User image ?</Paper>
-              </div>
-              <div className="eventsListContainer" style={eventsListContainer}>
-                <List className="eventList" style={eventList}>
-                  {this.props.events.events.map((calendarEvent, index) => {
-                    return (
-                      <CalendarCard
-                        key={index}
-                        title={this.props.events.events[index].eventName}
-                        subtitle={this.props.events.events[index].date}
-                        avatar={this.props.events.events[index].picture}
-                        description={this.props.events.events[index].description}
-                        routerProps={this.props.router}
-                        index={index}
-                        eventId={this.props.events.events[index].eventId}
-                      />
-                    )
-                  })}
-                </List>
-              </div>
+                <div style={userName} className="App-header">
+                    <h2>Current User</h2>{/*add actual userName with this.props.currentUser.firstName*/}
+                </div>
+                <div style={commandBar} className="headerBar">
+                    <RaisedButton onClick={this.logout} label="Logout" secondary={true} style={styleRaisedButton}/>
+                    <RaisedButton onClick={this.addEvent} label="Add Event" primary={true} style={styleRaisedButton}/>
+                    <Paper style={stylePaper} zDepth={3}>User image ?</Paper>
+                </div>
+                <div className="eventsListContainer" style={eventsListContainer}>
+                    <List className="eventList" style={eventList}>
+                        {this.props.events.events.map((calendarEvent, index) => {
+                            return (
+                                <CalendarCard
+                                key={index}
+                                title={this.props.events.events[index].eventName}
+                                subtitle={this.props.events.events[index].date}
+                                avatar={this.props.events.events[index].picture}
+                                description={this.props.events.events[index].description}
+                                routerProps={this.props.router}
+                                index={index}
+                                eventId={this.props.events.events[index].eventId}
+                                />
+                            )
+                        })}
+                    </List>
+                </div>
             </div>
         )
     }

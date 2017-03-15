@@ -1,13 +1,13 @@
 .CurrentUser {
-  text-align: center;
+    text-align: center;
 }
 
 .App-header {
-  background-image: url("seasons.jpg");
-  background-size: 100%;
-  height: 100%;
-  padding: 20px;
-  color: white;
+    background-image: url("seasons.jpg");
+    background-size: 100%;
+    height: 100%;
+    padding: 20px;
+    color: white;
 }
 
 
@@ -20,5 +20,5 @@
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
 }
