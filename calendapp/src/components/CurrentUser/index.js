@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
-import {List, ListItem} from 'material-ui/List';
-
+import {List} from 'material-ui/List';
+import CalendarCard from '../CalendarCard';
 
 // import { styleRaisedButton, stylePaper, userName, commandBar, eventsCalendar, calendarStyle } from './constants.js'
 // why could we not import these styles from './constants.js'
@@ -27,20 +27,17 @@ const commandBar = {
     alignItems: 'center'
 };
 
-const eventsCalendar = {
+const eventsListContainer = {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
 };
 
-const calendarStyle = {
-  height: '60vh',
+const eventList = {
   width: '60%',
-  margin: 20,
-  textAlign: 'center',
-  display: 'inline-block',
-};
+}
+
 
 
 class CurrentUser extends Component {
@@ -71,45 +68,34 @@ class CurrentUser extends Component {
         //require token
         this.props.router.push('/events/' + index)
     }
-/*
-<Paper>
-  <List>
-    <EventItem key = {index} onClick={this.goToEvent.bind(this, index)} primaryText={this.props.login[index].eventName}/>
-  </List>
-</Paper>
 
-*/
     render() {
         return (
             <div className="CurrentUser">
-                <div style={userName} className="App-header">
-                    <h2>Current User</h2>{/*add actual userName with this.props.currentUser.firstName*/}
-                </div>
-                <div style={commandBar} className="headerBar">
-                    <RaisedButton onClick={this.logout} label="Logout" secondary={true} style={styleRaisedButton}/>
-                    <RaisedButton onClick={this.addEvent} label="Add Event" primary={true} style={styleRaisedButton}/>
-                    <Paper style={stylePaper} zDepth={3}>User image ?</Paper>
-                </div>
-                <div className="eventsCalendarContainer" style={eventsCalendar}>
-                    <List className="eventList">
-                        {/*only display 10 events*/}
-                        {this.props.events.events.map((calendarEvent, index) => {
-                          console.log('INDEX', this.props.events.events[index].date);
-
-                          return (
-                            <ListItem
-                                key={index}
-                                onClick={this.goToEvent.bind(this, index)}
-                                primaryText= {this.props.events.events[index].eventName}
-                                secondaryText={this.props.events.events[index].date}
-                            />
-                          )
-                        })}
-                    </List>
-                    <Paper className="calendar" style={calendarStyle} zDepth={3}>
-                        Calendar
-                    </Paper>
-                </div>
+              <div style={userName} className="App-header">
+                  <h2>Current User</h2>{/*add actual userName with this.props.currentUser.firstName*/}
+              </div>
+              <div style={commandBar} className="headerBar">
+                  <RaisedButton onClick={this.logout} label="Logout" secondary={true} style={styleRaisedButton}/>
+                  <RaisedButton onClick={this.addEvent} label="Add Event" primary={true} style={styleRaisedButton}/>
+                  <Paper style={stylePaper} zDepth={3}>User image ?</Paper>
+              </div>
+              <div className="eventsListContainer" style={eventsListContainer}>
+                <List className="eventList" style={eventList}>
+                  {this.props.events.events.map((calendarEvent, index) => {
+                    return (
+                      <CalendarCard
+                        key={index}
+                        onClick={this.goToEvent.bind(this, index)}
+                        title={this.props.events.events[index].eventName}
+                        subtitle={this.props.events.events[index].date}
+                        avatar={this.props.events.events[index].picture}
+                        description={this.props.events.events[index].description}
+                      />
+                    )
+                  })}
+                </List>
+              </div>
             </div>
         )
     }
@@ -130,3 +116,19 @@ export default connect(mapStateToProps)(CurrentUser);
 //     />
 //   )
 // })}
+
+
+// <List className="eventList">
+//     {/*only display 10 events*/}
+//     {this.props.events.events.map((calendarEvent, index) => {
+//       console.log('INDEX', this.props.events.events[index].date);
+//       return (
+//         <ListItem
+//             key={index}
+//             onClick={this.goToEvent.bind(this, index)}
+//             primaryText= {this.props.events.events[index].eventName}
+//             secondaryText={this.props.events.events[index].date}
+//         />
+//       )
+//     })}
+// </List>
