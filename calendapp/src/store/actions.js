@@ -50,3 +50,22 @@ export const login = (loginUser) => { // action Creator
             });
     }
 }
+
+export const fetchEventData = () => { // action Creator will eventually need to receive the token for authentication
+    return (dispatch) => { // returns a function with IS the action
+
+        // place to later add the token authorisation
+
+        return fetch('http://localhost:8080/users/11')
+            .then(data => data.json())
+            .then(currentEventObj => {
+                console.log('after the dispatch');
+                console.log('currentEventObj ', currentEventObj);
+                dispatch({
+                    type: EVENTID,
+                    data: currentEventObj
+                })
+            });
+
+    }
+}
