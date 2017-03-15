@@ -29,9 +29,14 @@ class CalendarCard extends React.Component {
     this.setState({expanded: false});
   };
 
+  //custom functions
+  goToEvent = (index) => {
+      //require token
+      this.props.router.push('/events/' + index)
+  }
+
   render() {
-    console.log('this.props inside of Card', this.props);
-    console.log('this.state inside of Card', this.state);
+
     return (
       <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
         <CardHeader
@@ -53,16 +58,17 @@ class CalendarCard extends React.Component {
           expandable={true}
           overlay={<CardTitle title={this.props.title} subtitle={this.props.subtitle} />}
         >
-          <img src={this.props.avatar} />
+          <img src={this.props.avatar} alt="Avatar of the Event"/>
         </CardMedia>
         <CardTitle title={this.props.title} subtitle={this.props.subtitle} expandable={true} />
         <CardText expandable={true}>
           Click here to join! (Button to be added)
         </CardText>
-        {/*<CardActions>
+        <CardActions>
           <FlatButton label="Expand" onTouchTap={this.handleExpand} />
           <FlatButton label="Reduce" onTouchTap={this.handleReduce} />
-        </CardActions>*/}
+          <FlatButton label="Show Participants" onTouchTap={this.handleReduce} />
+        </CardActions>
       </Card>
     );
   }

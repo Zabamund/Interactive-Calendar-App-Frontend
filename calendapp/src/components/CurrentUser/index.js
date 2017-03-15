@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
-import {List, ListItem} from 'material-ui/List';
+import {List} from 'material-ui/List';
 import CalendarCard from '../CalendarCard';
 
 // import { styleRaisedButton, stylePaper, userName, commandBar, eventsCalendar, calendarStyle } from './constants.js'
@@ -27,12 +27,17 @@ const commandBar = {
     alignItems: 'center'
 };
 
-const eventsCalendar = {
+const eventsListContainer = {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
 };
+
+const eventList = {
+  width: '60%',
+}
+
 
 
 class CurrentUser extends Component {
@@ -65,7 +70,6 @@ class CurrentUser extends Component {
     }
 
     render() {
-      console.log('EVENTS',this.props);
         return (
             <div className="CurrentUser">
               <div style={userName} className="App-header">
@@ -76,8 +80,8 @@ class CurrentUser extends Component {
                   <RaisedButton onClick={this.addEvent} label="Add Event" primary={true} style={styleRaisedButton}/>
                   <Paper style={stylePaper} zDepth={3}>User image ?</Paper>
               </div>
-              <div className="eventsCalendarContainer" style={eventsCalendar}>
-                <List className="eventList">
+              <div className="eventsListContainer" style={eventsListContainer}>
+                <List className="eventList" style={eventList}>
                   {this.props.events.events.map((calendarEvent, index) => {
                     return (
                       <CalendarCard

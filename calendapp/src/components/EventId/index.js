@@ -39,7 +39,6 @@ const EventImage = {
 class EventId extends Component {
     render () {
 
-      console.log('this.props.events.events[this.props.params.eventId].location', this.props.events.events[this.props.params.eventId].location.city);
         return(
           <div className="EventCard">
             <div className="Party-header">
@@ -52,7 +51,6 @@ class EventId extends Component {
                   <List className="participantsList">
                     {(this.props.events.events[this.props.params.eventId].participants)
                         .map((participant, index) => {
-                        console.log(participant.name);
                         return(
                           <ListItem
                             key={index}
@@ -71,7 +69,6 @@ class EventId extends Component {
             </div>
           </div>
         );
-
     }
 }
 
