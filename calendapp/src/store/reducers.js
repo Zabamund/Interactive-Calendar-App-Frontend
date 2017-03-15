@@ -25,9 +25,8 @@ function eventsReducer(state = defaultState, action) {
         case EVENTID:
             // return token
             // return event(id) object
-            let newState = Object.assign({}, state);
-            console.log('newState ', newState);
-            return state;
+            let newState = Object.assign({}, action.data);
+            return newState;
         default:
             return state;
     }
