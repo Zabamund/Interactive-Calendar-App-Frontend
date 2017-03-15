@@ -37,7 +37,8 @@ function usersReducer(state = defaultState, action) {
         case USERID:
             //token
             // UserID object
-            return state;
+            let newState = Object.assign({}, action.data);
+            return newState;
         default:
             return state;
     }
