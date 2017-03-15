@@ -32,11 +32,12 @@ class CalendarCard extends React.Component {
   //custom functions
   goToEvent = (index) => {
       //require token
-      this.props.router.push('/events/' + index)
+    this.props.routerProps.push('/events/' + index)
+    console.log('my index is: ', index);
   }
 
   render() {
-
+      console.log('this.props inside cal card ', this.props);
     return (
       <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
         <CardHeader
@@ -67,7 +68,7 @@ class CalendarCard extends React.Component {
         <CardActions>
           <FlatButton label="Expand" onTouchTap={this.handleExpand} />
           <FlatButton label="Reduce" onTouchTap={this.handleReduce} />
-          <FlatButton label="Show Participants" onTouchTap={this.handleReduce} />
+          <FlatButton label="Show Participants" onClick={this.goToEvent.bind(this, this.props.index)}/>
         </CardActions>
       </Card>
     );

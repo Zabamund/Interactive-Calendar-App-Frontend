@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import {List} from 'material-ui/List';
+
 import CalendarCard from '../CalendarCard';
 
 // import { styleRaisedButton, stylePaper, userName, commandBar, eventsCalendar, calendarStyle } from './constants.js'
@@ -38,8 +38,6 @@ const eventList = {
   width: '60%',
 }
 
-
-
 class CurrentUser extends Component {
 
     constructor(props) {
@@ -63,12 +61,6 @@ class CurrentUser extends Component {
         this.props.router.push('/events/addEvent')
     }
 
-    goToEvent = (index) => {
-        // event.preventDefault();
-        //require token
-        this.props.router.push('/events/' + index)
-    }
-
     render() {
         return (
             <div className="CurrentUser">
@@ -86,11 +78,13 @@ class CurrentUser extends Component {
                     return (
                       <CalendarCard
                         key={index}
-                        onClick={this.goToEvent.bind(this, index)}
                         title={this.props.events.events[index].eventName}
                         subtitle={this.props.events.events[index].date}
                         avatar={this.props.events.events[index].picture}
                         description={this.props.events.events[index].description}
+                        routerProps={this.props.router}
+                        index={index}
+                        eventId={this.props.events.events[index].eventId}
                       />
                     )
                   })}
@@ -106,29 +100,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(CurrentUser);
-
-// {this.props.login.map((calendarEvent, index) => {
-//   return (
-//     <ListItem
-//         key={index}
-//         onClick={this.goToEvent.bind(this, index)}
-//         primaryText={this.props.login[index].eventName}
-//     />
-//   )
-// })}
-
-
-// <List className="eventList">
-//     {/*only display 10 events*/}
-//     {this.props.events.events.map((calendarEvent, index) => {
-//       console.log('INDEX', this.props.events.events[index].date);
-//       return (
-//         <ListItem
-//             key={index}
-//             onClick={this.goToEvent.bind(this, index)}
-//             primaryText= {this.props.events.events[index].eventName}
-//             secondaryText={this.props.events.events[index].date}
-//         />
-//       )
-//     })}
-// </List>
