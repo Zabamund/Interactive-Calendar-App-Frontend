@@ -44,17 +44,17 @@ class CurrentUser extends Component {
                 </div>
                 <div className="eventsListContainer" style={eventsListContainer}>
                     <List className="eventList" style={eventList}>
-                        {this.props.events.events.map((calendarEvent, index) => {
+                        {this.props.events.map((calendarEvent, index) => {
                             return (
                                 <CalendarCard
                                 key={index}
-                                title={this.props.events.events[index].eventName}
-                                subtitle={this.props.events.events[index].date}
-                                avatar={this.props.events.events[index].picture}
-                                description={this.props.events.events[index].description}
+                                title={this.props.events[index].eventName}
+                                subtitle={this.props.events[index].date}
+                                avatar={this.props.events[index].picture}
+                                description={this.props.events[index].description}
                                 routerProps={this.props.router}
                                 index={index}
-                                eventId={this.props.events.events[index].eventId}
+                                eventId={this.props.events[index].eventId}
                                 />
                             )
                         })}

@@ -8,7 +8,7 @@ export const CURRENTUSER = 'currentUser';
 // export const REGISTERUSER = 'registerUser';
 
 // action creators
-export const login = (loginUser) => {
+export const login = (loginUser) => { // action Creator
     return (dispatch) => { // returns a function which IS the action
 
         const myHeaders = new Headers({
@@ -54,6 +54,9 @@ export const login = (loginUser) => {
 
 export const fetchEventData = () => { // action Creator will eventually need to receive the token for authentication
     return(dispatch) => { // returns a function with IS the action
+
+        // place to later add the token authorisation
+
         return fetch('http://localhost:8080/events/1')
             .then(data => data.json())
             .then(currentEventObj => {
