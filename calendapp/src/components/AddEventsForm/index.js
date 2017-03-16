@@ -28,7 +28,9 @@ const styles={
 class AddEventsForm extends Component {
     constructor(props) {
         super(props);
-        this.state={
+
+        //attempt to re-create format given in the API
+        this.state = {
             eventName: '',
             date: '',
             time: '',

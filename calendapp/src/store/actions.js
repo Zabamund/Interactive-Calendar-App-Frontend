@@ -9,7 +9,33 @@ export const CURRENTUSER = 'currentUser';
 // export const ADDEVENT = 'addEvent';
 // export const REGISTERUSER = 'registerUser';
 
-// action creators
+// ACTION CREATORS
+
+export const addEvent = (formData) => {
+    console.log('in da addEvent');
+
+    const myHeaders = new Headers({
+        'Content-Type': 'application/json',
+    });
+
+    const config = {
+        method: 'POST',
+        headers: myHeaders,
+        body: JSON.stringify(formData),
+    }
+
+    //post request to add new Event to DB
+
+    return fetch('http://localhost:8080/events', config)
+        .then(results => results.json())
+        .then(eventData => {
+            console.log('events', eventData);
+            //typeChecking to follow
+        })
+
+}
+
+
 export const login = (loginUser) => { // action Creator
     return (dispatch) => { // returns a function which IS the action
 
@@ -86,9 +112,4 @@ export const fetchAllEventData = () => { // action Creator will eventually need 
                 })
             });
     }
-}
-
-
-export const addEvent = () => {
-    console.log('in da addEvent');
 }
