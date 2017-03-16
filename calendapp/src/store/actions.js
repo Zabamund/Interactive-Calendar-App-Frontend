@@ -11,18 +11,17 @@ export const CURRENTUSER = 'currentUser';
 
 // ACTION CREATORS
 
-export const addEvent = (formData) => { //formData is just component state
-    console.log('in da addEvent');
-    console.log('sample form data: ', formData);
+export const addEvent = (addEventsFormState) => { //formData is just component state
+    console.log('submitted form data: ', addEventsFormState);
 
-    const myHeaders = new Headers({
+    const myHeaders = new Headers({ //convert entered object into JSON
         'Content-Type': 'application/json',
     });
 
     const config = {
         method: 'POST',
         headers: myHeaders,
-        body: JSON.stringify(formData),
+        body: JSON.stringify(addEventsFormState),
     }
 
     //post request to add new Event to DB
@@ -30,10 +29,9 @@ export const addEvent = (formData) => { //formData is just component state
     return fetch('http://localhost:8080/events', config)
         .then(results => results.json())
         .then(eventData => {
-            console.log('events', eventData);
+            console.log('fetched events', eventData);
             //typeChecking to follow
         })
-
 }
 
 

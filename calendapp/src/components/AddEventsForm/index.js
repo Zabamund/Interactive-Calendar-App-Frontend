@@ -44,24 +44,30 @@ class AddEventsForm extends Component {
             id: '', //set when saving in DB
             eventName: '',
             date: '',
-            time: '',
-            description: '',
-            image: '', //not set here
-            creator:'', //not set here
-            participants:'', //not set here
-            location: '',
-            open: '',
+            time: '12:00:00.000', //default
+            description: 'default', //default
+            image: 'http://www.citi.io/wp-content/uploads/2015/08/1168-00-06.jpg', //default
+            creator: '', //not set here
+            participants: '', //not set here
+            location: 'secret', //default
+            open: 'false', //default //improve button!
         };
     }
 
+
+    submitNewEventData = (event) => {
+        event.preventDefault();
+        const addEventAction = addEvent(this.state); //store/action.js
+    }
+
+
     eventNameInput = (event) => {
         this.setState({
-            eventName:event.currentTarget.value
+            eventName:event.currentTarget.value,
         })
     };
 
     dateInput = (event, date) => { //event is always null, OK
-        console.log('date in da date', date);
 
         this.setState({
             date: date,
@@ -88,14 +94,7 @@ class AddEventsForm extends Component {
     };
 
 
-    submitNewEventData = (event) => {
-        console.log('in da submit');
-        event.preventDefault();
-        const addEventAction = addEvent(this.state);
-    }
-
     openBooleanInput = (event, index, value) => {
-        console.log('Dropdown changed', value);
         if(value==1) {
             this.setState(
                 {open: true}
