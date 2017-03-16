@@ -58,7 +58,6 @@ class App extends Component {
 
 
     render() {
-        // console.log('props in Homepage', this.props);
         return (
             <div className="App">
                 <div className="App-header">

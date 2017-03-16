@@ -32,6 +32,7 @@ class CurrentUser extends Component {
     }
 
     render() {
+        console.log('currentUser render', this.props);
         return (
             <div className="CurrentUser">
                 <div style={userName} className="App-header">
