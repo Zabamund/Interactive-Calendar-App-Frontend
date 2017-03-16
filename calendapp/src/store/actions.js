@@ -11,8 +11,9 @@ export const CURRENTUSER = 'currentUser';
 
 // ACTION CREATORS
 
-export const addEvent = (formData) => {
+export const addEvent = (formData) => { //formData is just component state
     console.log('in da addEvent');
+    console.log('sample form data: ', formData);
 
     const myHeaders = new Headers({
         'Content-Type': 'application/json',

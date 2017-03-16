@@ -17,7 +17,7 @@ const styles={
   },
   floatingLabelStyle: {
     marginLeft: 12,
-    color: orange500,
+    color: 'dark-blue',
   },
   floatingLabelFocusStyle: {
     marginLeft: 12,
@@ -31,10 +31,14 @@ class AddEventsForm extends Component {
 
         //attempt to re-create format given in the API
         this.state = {
+            id: '', //set when saving in DB
             eventName: '',
             date: '',
             time: '',
             description: '',
+            image: '', //not set here
+            creator:'', //not set here
+            participants:'', //not set here
             location: '',
             open: '',
         };
@@ -84,9 +88,10 @@ class AddEventsForm extends Component {
 
     render() {
         return(
-
             <div>
                 <form onSubmit={this.submitNewEventData}>
+
+                {/*Event Name*/}
                   <TextField
                     hintText="Enter here"
                     errorText="This field is required."
@@ -96,6 +101,7 @@ class AddEventsForm extends Component {
                     onChange={this.eventNameInput}
                   /><br />
 
+                  {/*Date*/}
                   <TextField
                     hintText="Enter here"
                     errorText="This field is required."
@@ -105,6 +111,7 @@ class AddEventsForm extends Component {
                     onChange={this.dateInput}
                   /><br/>
 
+                  {/*Time*/}
                   <TextField
                     hintText="Enter here"
                     errorText="This field is required."
@@ -114,6 +121,7 @@ class AddEventsForm extends Component {
                     onChange={this.timeInput}
                   /><br />
 
+                  {/*Description*/}
                   <TextField
                     hintText="Enter here"
                     floatingLabelText="Description"
@@ -122,12 +130,15 @@ class AddEventsForm extends Component {
                     onChange={this.descriptionInput}
                   /><br />
 
+                  {/*Location*/}
                   <TextField
                     hintText="Enter here"
+                    errorText="This field is required."
                     floatingLabelText="Location"
                     floatingLabelStyle={styles.floatingLabelStyle}
-
                   /><br />
+
+                  {/*Open / closed (boolean)*/}
                   <TextField
                     hintText="Enter here"
                     floatingLabelText="open (true / false)"
