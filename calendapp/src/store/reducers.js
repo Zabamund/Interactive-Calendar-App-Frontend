@@ -31,10 +31,6 @@ function eventsReducer(state = [], action) { // defaultState ONLY used during de
 
 
         case FETCHEVENTSFORUSER:
-            // console.log('ACTION.DATA inside FETCHEVENTSFORUSER', action.data)
-            console.log('action.data', action.data);
-            console.log('action.userId', action.userId);
-
             const filteredArray = action.data.filter(function(eventsObject) {
                 // console.log('eventsObject ', eventsObject);
                 for(let i = 0; i<eventsObject.participants.length; i++) {
@@ -45,7 +41,6 @@ function eventsReducer(state = [], action) { // defaultState ONLY used during de
                 return false;
             });
 
-            console.log('FILTEREDARRAY', filteredArray)
             return filteredArray;
 
         default:

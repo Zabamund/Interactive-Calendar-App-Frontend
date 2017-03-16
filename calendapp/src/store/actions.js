@@ -62,7 +62,6 @@ export const fetchEventDataByUser = (id) => { // action Creator will eventually 
         return fetch('http://localhost:8080/events/')
             .then(data => data.json())
             .then(allEventsArray => {
-                console.log('all Events', allEventsArray);
                 dispatch({
                     type: FETCHEVENTSFORUSER,
                     data: allEventsArray,
@@ -81,7 +80,6 @@ export const fetchAllEventData = () => { // action Creator will eventually need 
         return fetch('http://localhost:8080/events/')
             .then(data => data.json())
             .then(allEventsArray => {
-                console.log('all Events', allEventsArray);
                 dispatch({
                     type: FETCHALLEVENTS,
                     data: allEventsArray,
