@@ -40,7 +40,6 @@ function eventsReducer(state = [], action) { // defaultState ONLY used during de
                 }
                 return false;
             });
-
             return filteredArray;
 
         default:

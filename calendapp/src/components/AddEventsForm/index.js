@@ -5,19 +5,19 @@ import {orange500, blue500} from 'material-ui/styles/colors';
 
 const styles = {
   errorStyle: {
-    marginLeft: '12',
+    marginLeft: 12,
     color: orange500,
   },
   underlineStyle: {
-    marginLeft: '12',
+    marginLeft: 12,
     borderColor: orange500,
   },
   floatingLabelStyle: {
-    marginLeft: '12',
+    marginLeft: 12,
     color: orange500,
   },
   floatingLabelFocusStyle: {
-    marginLeft: '12',
+    marginLeft: 12,
     color: blue500,
   },
 };
