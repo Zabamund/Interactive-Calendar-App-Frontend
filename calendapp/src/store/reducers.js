@@ -19,7 +19,7 @@ function currentUserReducer(state = {}, action) {
     }
 }
 
-function eventsReducer(state = [], action) { // defaultState ONLY used during development
+function eventsReducer(state = defaultState, action) { // defaultState ONLY used during development
     switch (action.type) {
         case EVENTID:
             // return token

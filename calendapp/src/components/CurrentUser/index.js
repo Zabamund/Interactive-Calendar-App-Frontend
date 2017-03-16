@@ -32,6 +32,7 @@ class CurrentUser extends Component {
     }
 
     render() {
+        console.log('this.props ', this.props);
         return (
             <div className="CurrentUser">
                 <div style={userName} className="App-header">
@@ -44,17 +45,17 @@ class CurrentUser extends Component {
                 </div>
                 <div className="eventsListContainer" style={eventsListContainer}>
                     <List className="eventList" style={eventList}>
-                        {this.props.events.map((calendarEvent, index) => {
+                        {this.props.events.events.map((calendarEvent, index) => { // beware events.events CURRENTLY depends on defaultState
                             return (
                                 <CalendarCard
                                 key={index}
-                                title={this.props.events[index].eventName}
-                                subtitle={this.props.events[index].date}
-                                avatar={this.props.events[index].picture}
-                                description={this.props.events[index].description}
+                                title={this.props.events.events[index].eventName}
+                                subtitle={this.props.events.events[index].date}
+                                avatar={this.props.events.events[index].picture}
+                                description={this.props.events.events[index].description}
                                 routerProps={this.props.router}
                                 index={index}
-                                eventId={this.props.events[index].eventId}
+                                eventId={this.props.events.events[index].eventId}
                                 />
                             )
                         })}
