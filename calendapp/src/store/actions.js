@@ -8,7 +8,7 @@ export const CURRENTUSER = 'currentUser';
 // export const REGISTERUSER = 'registerUser';
 
 // action creators
-export const login = (loginUser) => { // action Creator
+export const login = (loginUser) => {
     return (dispatch) => { // returns a function which IS the action
 
         const myHeaders = new Headers({
@@ -35,34 +35,48 @@ export const login = (loginUser) => { // action Creator
             })
         */
 
+        //post request to get back user data
         return fetch('https://propulsion-blitz.herokuapp.com/api/login', config) // need the login api url
-            .then(data => data.json())
-            .then(currentUserObj => {
-                if (currentUserObj.token) {
-                    console.log('login successful');
-                } else {
-                    console.log('the email and password combination was wrong');
-                }
-                dispatch({
-                    type: LOGIN,
-                    data: currentUserObj
-                })
-            });
+        .then(data => data.json())
+        .then(currentUserObj => {
+            if (currentUserObj.token) {
+                console.log('login successful');
+            } else {
+                console.log('the email and password combination was wrong');
+            }
+            dispatch({ //now, dispatch to Redux state
+                type: LOGIN,
+                data: currentUserObj //in the API, not just user but entire data.
+            })
+        });
     }
 }
 
 export const fetchEventData = () => { // action Creator will eventually need to receive the token for authentication
-    return (dispatch) => { // returns a function with IS the action
-
-        // place to later add the token authorisation
-
+    return(dispatch) => { // returns a function with IS the action
         return fetch('http://localhost:8080/events/1')
             .then(data => data.json())
             .then(currentEventObj => {
+                console.log('currentEvent', currentEventObj);
                 dispatch({
                     type: EVENTID,
-                    data: currentEventObj
+                    data: currentEventObj,
                 })
             });
     }
 }
+
+//fetching a user by ID
+// export const fetchUserDataById = (userID) => {
+//     return(dispatch) => {
+//         return fetch('http://localhost:8080/users/'+userID)
+//             .then(data => data.json())
+//             .then(currentUserObj => {
+//                 console.log('currentUser', currentUserObj);
+//                 dispatch({
+//                     type: USERID,
+//                     data: currentUserObj,
+//                 })
+//             });
+//     }
+// }

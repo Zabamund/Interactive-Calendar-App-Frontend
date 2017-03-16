@@ -10,6 +10,7 @@ const style = {
     margin: 12,
     };
 
+//temporarily as component to experiment with API
 class AddEvent extends Component {
 
     constructor(props) {
@@ -35,6 +36,9 @@ class AddEvent extends Component {
             })
     }
 
+
+
+
     render () {
         console.log('description ', this.props.events.description);
         console.log('eventName ', this.props.events.eventName);
@@ -43,6 +47,7 @@ class AddEvent extends Component {
                 <h3>Add event</h3>
                 {/* // add fetch button to test the API on local */}
                 <RaisedButton onClick={this.fetchEvent} label="Fetch event1 from API" style={style} />
+
                 <div>
                     <p>Text</p>
                     <Paper zDepth={3}>

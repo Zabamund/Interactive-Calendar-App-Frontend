@@ -32,17 +32,17 @@ class App extends Component {
         })
     };
 
-    logonForm = (event) => {
+    submitLoginData = (event) => {
         event.preventDefault();
         const logonAction = login(this.state);
         this.props.dispatch(logonAction)
             .then(() => {
-                this.setState({
+                this.setState({ //clear component state
                     email:'',
-                    password:''
+                    password:'',
                 });
             })
-            .then(() => {
+            .then(() => { //work with the redux state (this.props.<stateElement>).
                 if (this.props.currentUser.currentUser.token) {
                     this.props.router.push('/users/currentUser')
                 } else {
@@ -58,12 +58,13 @@ class App extends Component {
 
 
     render() {
+        console.log('props in Homepage', this.props);
         return (
             <div className="App">
                 <div className="App-header">
                     <h2>Welcome to Calendapp</h2>
                 </div>
-                <form onSubmit={this.logonForm}>
+                <form onSubmit={this.submitLoginData}>
                     <div className="textFields">
                         <TextField value={this.state.email} onChange={this.emailInput} floatingLabelText="Email"/>
                         <TextField value={this.state.password} onChange={this.passwordInput} floatingLabelText="Password" type="password"/>
