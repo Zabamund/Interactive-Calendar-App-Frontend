@@ -46,7 +46,6 @@ class App extends Component {
                 });
             })
             .then(() => {
-                console.log('CURRENTUSER', this.props.currentUser._id);
                 const idOfCurrentUser = 1/*this.props.currentUser._id[0]*/; //for now, take first digit of first user, until real fetch is done
                 const getEventDataAction = /*fetchAllEventData*/fetchEventDataByUser(idOfCurrentUser);
                 this.props.dispatch(getEventDataAction);

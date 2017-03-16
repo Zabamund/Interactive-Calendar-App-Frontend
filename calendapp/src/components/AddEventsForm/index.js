@@ -42,15 +42,15 @@ class AddEventsForm extends Component {
         //attempt to re-create format given in the API
         this.state = {
             id: '', //set when saving in DB
-            eventName: '',
-            date: '',
-            time: '12:00:00.000', //default
-            description: 'default', //default
+            eventName: 'New Event', //default
+            date: '2017,12,31', //default
+            time: ['0,0'], //default
+            description: 'Lets have some fun!', //default
+            creator: this.props.currentUser, //must be the current user :)
+            participants: [this.props.currentUser], //default
+            location: 'secret', //default //should be an object.
+            open: 'false', //default //improve button label!
             image: 'http://www.citi.io/wp-content/uploads/2015/08/1168-00-06.jpg', //default
-            creator: '', //not set here
-            participants: '', //not set here
-            location: 'secret', //default
-            open: 'false', //default //improve button!
         };
     }
 
@@ -58,6 +58,7 @@ class AddEventsForm extends Component {
     submitNewEventData = (event) => {
         event.preventDefault();
         const addEventAction = addEvent(this.state); //store/action.js
+        //continue here! addEventAction is assigned a value but never use
     }
 
 
@@ -72,7 +73,6 @@ class AddEventsForm extends Component {
         this.setState({
             date: date,
         })
-        console.log(this.state.date);
     };
 
     timeInput = (event) => {
