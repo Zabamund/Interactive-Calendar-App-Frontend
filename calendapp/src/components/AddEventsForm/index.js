@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import TextField from 'material-ui/TextField';
 import {orange500, blue500} from 'material-ui/styles/colors';
 import {RaisedButton} from 'material-ui';
+//DropDown
+import DropDownMenu from 'material-ui/DropDownMenu';
+import MenuItem from 'material-ui/MenuItem';
 
 import { addEvent } from '../../store/actions.js'
-// import DatePicker from '../DatePicker';
 import DatePicker from 'material-ui/DatePicker';
 
 const styles={
@@ -24,6 +26,12 @@ const styles={
   floatingLabelFocusStyle: {
     marginLeft: 12,
     color: blue500,
+  },
+};
+
+const dropDownStyles = {
+  customWidth: {
+    width: 300,
   },
 };
 
@@ -52,10 +60,13 @@ class AddEventsForm extends Component {
         })
     };
 
-    dateInput = (event) => {
+    dateInput = (event, date) => { //event is always null, OK
+        console.log('date in da date', date);
+
         this.setState({
-            date:event.currentTarget.value
+            date: date,
         })
+        console.log(this.state.date);
     };
 
     timeInput = (event) => {
@@ -76,17 +87,26 @@ class AddEventsForm extends Component {
         })
     };
 
-    openBooleanInput = (event) => {
-        this.setState({
-            open:event.currentTarget.value
-        })
-    };
 
     submitNewEventData = (event) => {
         console.log('in da submit');
         event.preventDefault();
         const addEventAction = addEvent(this.state);
     }
+
+    openBooleanInput = (event, index, value) => {
+        console.log('Dropdown changed', value);
+        if(value==1) {
+            this.setState(
+                {open: true}
+            )
+        }
+        if(value==2) {
+            this.setState(
+                {open: false}
+            )
+        }
+    };
 
     render() {
         return(
@@ -104,7 +124,7 @@ class AddEventsForm extends Component {
                   /><br />
 
                   {/*Date*/}
-                  <DatePicker hintText="Enter Event Date" container="inline"/>
+                  <DatePicker hintText="Enter Event Date" container="inline" onChange={this.dateInput}/>
 
                   {/*Time*/}
                   <TextField
@@ -134,12 +154,10 @@ class AddEventsForm extends Component {
                   /><br />
 
                   {/*Open / closed (boolean)*/}
-                  <TextField
-                    hintText="Enter here"
-                    floatingLabelText="open (true / false)"
-                    floatingLabelStyle={styles.floatingLabelStyle}
-                    onChange={this.openBooleanInput}
-                  /><br />
+                  <DropDownMenu value={this.state.value} onChange={this.openBooleanInput} style={dropDownStyles}>
+                    <MenuItem value={1} primaryText="open"  label="Open Event?"/>
+                    <MenuItem value={2} primaryText="private"  label="Open Event?" />
+                  </DropDownMenu>
 
                   {/*SUBMIT BUTTON*/}
                   <RaisedButton label="Submit (Add Event)" type="submit"/>
