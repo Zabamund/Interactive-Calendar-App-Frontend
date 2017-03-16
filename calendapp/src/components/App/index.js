@@ -42,8 +42,8 @@ class App extends Component {
                     password:'',
                 });
             })
-            .then(() => { //work with the redux state (this.props.<stateElement>).
-                if (this.props.currentUser.currentUser.token) {
+            .then(() => { //work with the redux state (this.props.<stateElement>)
+                if (this.props.currentUser.token) {
                     this.props.router.push('/users/currentUser')
                 } else {
                     alert('your login attempt failed');
@@ -58,7 +58,7 @@ class App extends Component {
 
 
     render() {
-        console.log('props in Homepage', this.props);
+        // console.log('props in Homepage', this.props);
         return (
             <div className="App">
                 <div className="App-header">

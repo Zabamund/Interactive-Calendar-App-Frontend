@@ -3,13 +3,12 @@ import { LOGIN, EVENTID, USERID, CURRENTUSER } from './actions';
 import { defaultState } from './constants.js'
 
 // one reducer per property of the Redux State
-function currentUserReducer(state = defaultState, action) {
+function currentUserReducer(state = {}, action) {
     switch (action.type) {
         case LOGIN:
-        let newState = Object.assign({}, state);
-        // console.log('action ', action);
-        newState.currentUser.token = action.data.token;
-        // console.log('newState after token ', newState);
+        let newState = Object.assign({}, state, action.data);
+        newState.token = action.data.token;
+        console.log('NEWSTATE', newState)
             return newState;
         case CURRENTUSER:
             // return token
@@ -20,7 +19,7 @@ function currentUserReducer(state = defaultState, action) {
     }
 }
 
-function eventsReducer(state = defaultState, action) {
+function eventsReducer(state = defaultState, action) { // defaultState ONLY used during development
     switch (action.type) {
         case EVENTID:
             // return token
@@ -32,7 +31,7 @@ function eventsReducer(state = defaultState, action) {
     }
 }
 
-function usersReducer(state = defaultState, action) {
+function usersReducer(state = [], action) {
     switch (action.type) {
         case USERID:
             //token

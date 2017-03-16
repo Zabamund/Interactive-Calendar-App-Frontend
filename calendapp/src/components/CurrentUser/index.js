@@ -44,7 +44,7 @@ class CurrentUser extends Component {
                 </div>
                 <div className="eventsListContainer" style={eventsListContainer}>
                     <List className="eventList" style={eventList}>
-                        {this.props.events.events.map((calendarEvent, index) => {
+                        {this.props.events.events.map((calendarEvent, index) => { // beware events.events CURRENTLY depends on defaultState
                             return (
                                 <CalendarCard
                                 key={index}

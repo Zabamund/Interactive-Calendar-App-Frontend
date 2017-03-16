@@ -4,36 +4,30 @@ import FlatButton from 'material-ui/FlatButton';
 import Toggle from 'material-ui/Toggle';
 import { connect } from 'react-redux';
 
+import ToggleButton from '../ToggleButton';
+
 class CalendarCard extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-        expanded: false,
+    constructor(props) {
+        super(props);
+        this.state = {
+            expanded: false,
+        };
+    }
+
+    handleExpandChange = (expanded) => {
+        this.setState({expanded: expanded});
     };
-  }
 
-  handleExpandChange = (expanded) => {
-    this.setState({expanded: expanded});
-  };
+    handleToggle = (event, toggle) => {
+        this.setState({expanded: toggle});
+    };
 
-  handleToggle = (event, toggle) => {
-    this.setState({expanded: toggle});
-  };
-
-  handleExpand = () => {
-    this.setState({expanded: true});
-  };
-
-  handleReduce = () => {
-    this.setState({expanded: false});
-  };
-
-  //custom functions
-  goToEvent = (index) => {
-      //require token
-    this.props.routerProps.push('/events/' + index)
-  }
+    //custom functions
+    goToEvent = (index) => {
+        //require token
+        this.props.routerProps.push('/events/' + index)
+    }
 
   render() {
     return (
@@ -64,8 +58,8 @@ class CalendarCard extends React.Component {
                 Click here to join! (Button to be added)
             </CardText>
             <CardActions>
-                <FlatButton label="Expand" onTouchTap={this.handleExpand} />
-                <FlatButton label="Reduce" onTouchTap={this.handleReduce} />
+                // location of toggle button
+                <ToggleButton />
                 <FlatButton label="Show Participants" onClick={this.goToEvent.bind(this, this.props.index)}/>
             </CardActions>
         </Card>
