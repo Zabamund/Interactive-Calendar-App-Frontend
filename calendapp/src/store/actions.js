@@ -52,18 +52,34 @@ export const login = (loginUser) => { // action Creator
     }
 }
 
-export const fetchEventData = () => { // action Creator will eventually need to receive the token for authentication
+
+// function filterArrayByParticipantId(array, id) {
+//     for (var i = 0; i < array.length; i++) {
+//         if(array.participants[i].id==id) {
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+
+
+export const fetchEventData = (id) => { // action Creator will eventually need to receive the token for authentication
     return(dispatch) => { // returns a function with IS the action
 
         // place to later add the token authorisation
 
-        return fetch('http://localhost:8080/events/1')
+        return fetch('http://localhost:8080/events'/*, userID*/) //userID as 2nd argument, to filter results array.
             .then(data => data.json())
-            .then(currentEventObj => {
-                console.log('currentEvent', currentEventObj);
+            .then(eventsArray => {
+                console.log('allEvents', eventsArray);
+                console.log('FilterResult', eventsArray.filter(function(eventObject) {
+                    return eventObject.id===id;
+                }));
                 dispatch({
                     type: EVENTID,
-                    data: currentEventObj,
+                    data: eventsArray, //boil down to current user: eventsArray.filter(...CONDITION)
+                    //eventsArray.filter(if([eventsArray.participants] userId)) //PSEUDOCODE
+                    //eventsArray.filter(filterParticipantsById(eventsArray, id)) //
                 })
             });
     }

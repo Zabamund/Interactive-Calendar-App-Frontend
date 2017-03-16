@@ -19,12 +19,17 @@ function currentUserReducer(state = {}, action) {
     }
 }
 
-function eventsReducer(state = defaultState, action) { // defaultState ONLY used during development
+function eventsReducer(state = []/*{}*/, action) { // defaultState ONLY used during development
     switch (action.type) {
         case EVENTID:
             // return token
             // return event(id) object
-            let newState = Object.assign({}, action.data);
+            let newState = state;
+            action.data.forEach( function(eventsObject) {
+                newState.push(eventsObject);
+            });
+            // let newState = Object.assign({}, action.data);
+            console.log('newState of Events is', newState);
             return newState;
         default:
             return state;
