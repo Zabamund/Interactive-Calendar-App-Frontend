@@ -33,10 +33,12 @@ function eventsReducer(state = [], action) { // defaultState ONLY used during de
         case FETCHEVENTSFORUSER:
             // console.log('ACTION.DATA inside FETCHEVENTSFORUSER', action.data)
             console.log('action.data', action.data);
+            console.log('action.userId', action.userId);
+
             const filteredArray = action.data.filter(function(eventsObject) {
                 // console.log('eventsObject ', eventsObject);
                 for(let i = 0; i<eventsObject.participants.length; i++) {
-                    if(eventsObject.participants[i].id===1) {
+                    if(eventsObject.participants[i].id===action.userId) {
                         return true;
                     }
                 }

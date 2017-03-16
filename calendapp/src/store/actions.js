@@ -66,6 +66,7 @@ export const fetchEventDataByUser = (id) => { // action Creator will eventually 
                 dispatch({
                     type: FETCHEVENTSFORUSER,
                     data: allEventsArray,
+                    userId: id,
                 })
             });
     }
