@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { LOGIN, EVENTID, USERID, CURRENTUSER } from './actions';
+import { LOGIN, FETCHALLEVENTS, FETCHEVENTSFORUSER, USERID, CURRENTUSER } from './actions';
 // import { defaultState } from './constants.js'
 
 // one reducer per property of the Redux State
@@ -8,7 +8,6 @@ function currentUserReducer(state = {}, action) {
         case LOGIN:
         let newState = Object.assign({}, state, action.data);
         newState.token = action.data.token;
-        console.log('NEWSTATE', newState);
             return newState;
         case CURRENTUSER:
             // return token
@@ -21,16 +20,32 @@ function currentUserReducer(state = {}, action) {
 
 function eventsReducer(state = [], action) { // defaultState ONLY used during development
     switch (action.type) {
-        case EVENTID:
+        case FETCHALLEVENTS:
             // return token
             // return event(id) object
             let newState = [];
             action.data.forEach( function(eventsObject) {
                 newState.push(eventsObject);
             });
-
-            console.log('newState of Events is', newState);
             return newState;
+
+
+        case FETCHEVENTSFORUSER:
+            // console.log('ACTION.DATA inside FETCHEVENTSFORUSER', action.data)
+
+            const filteredArray = action.data.filter(function(eventsObject) {
+                console.log('eventsObject.participants ', eventsObject.participants);
+                //eventsObject.participants[0].id === id;
+                eventsObject.participants.forEach(function(participant) {
+                    // console.log('participant', participant);
+                    // console.log('participant is in the array', participant.id===1);
+                    return participant.id===1;
+                })
+            })
+
+            console.log('FILTEREDARRAY', filteredArray)
+            return filteredArray;
+
         default:
             return state;
     }
