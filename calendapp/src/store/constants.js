@@ -1,6 +1,6 @@
 // ONLY needed on components missing from API during development
 
-export const defaultState = {
+/*export*/ const defaultState = {
     events: [
         {
         "id": 1,
