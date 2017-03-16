@@ -5,6 +5,8 @@ import {orange500, blue500} from 'material-ui/styles/colors';
 import {RaisedButton} from 'material-ui';
 
 import { addEvent } from '../../store/actions.js'
+// import DatePicker from '../DatePicker';
+import DatePicker from 'material-ui/DatePicker';
 
 const styles={
   errorStyle: {
@@ -102,14 +104,7 @@ class AddEventsForm extends Component {
                   /><br />
 
                   {/*Date*/}
-                  <TextField
-                    hintText="Enter here"
-                    errorText="This field is required."
-                    floatingLabelText="Date"
-                    hintStyle={styles.errorStyle}
-                    floatingLabelStyle={styles.floatingLabelStyle}
-                    onChange={this.dateInput}
-                  /><br/>
+                  <DatePicker hintText="Enter Event Date" container="inline"/>
 
                   {/*Time*/}
                   <TextField
