@@ -55,14 +55,14 @@ export const login = (loginUser) => { // action Creator
 }
 
 
-export const fetchEventDataByUser = () => { // action Creator will eventually need to receive the token for authentication
+export const fetchEventDataByUser = (id) => { // action Creator will eventually need to receive the token for authentication
     return(dispatch) => { // returns a function with IS the action
 
         // place to later add the token authorisation
         return fetch('http://localhost:8080/events/')
             .then(data => data.json())
             .then(allEventsArray => {
-                console.log('all Events', allEventsArray);            
+                console.log('all Events', allEventsArray);
                 dispatch({
                     type: FETCHEVENTSFORUSER,
                     data: allEventsArray,

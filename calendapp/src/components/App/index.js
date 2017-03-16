@@ -46,7 +46,7 @@ class App extends Component {
                 });
             })
             .then(() => {
-                const getEventDataAction = /*fetchAllEventData*/fetchEventDataByUser();
+                const getEventDataAction = /*fetchAllEventData*/fetchEventDataByUser(2);
                 this.props.dispatch(getEventDataAction);
             })
             .then(() => { //work with the redux state (this.props.<stateElement>)

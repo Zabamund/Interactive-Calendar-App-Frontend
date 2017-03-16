@@ -32,16 +32,16 @@ function eventsReducer(state = [], action) { // defaultState ONLY used during de
 
         case FETCHEVENTSFORUSER:
             // console.log('ACTION.DATA inside FETCHEVENTSFORUSER', action.data)
-
+            console.log('action.data', action.data);
             const filteredArray = action.data.filter(function(eventsObject) {
-                console.log('eventsObject.participants ', eventsObject.participants);
-                //eventsObject.participants[0].id === id;
-                eventsObject.participants.forEach(function(participant) {
-                    // console.log('participant', participant);
-                    // console.log('participant is in the array', participant.id===1);
-                    return participant.id===1;
-                })
-            })
+                // console.log('eventsObject ', eventsObject);
+                for(let i = 0; i<eventsObject.participants.length; i++) {
+                    if(eventsObject.participants[i].id===1) {
+                        return true;
+                    }
+                }
+                return false;
+            });
 
             console.log('FILTEREDARRAY', filteredArray)
             return filteredArray;
