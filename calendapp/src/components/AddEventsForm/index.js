@@ -2,8 +2,11 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import TextField from 'material-ui/TextField';
 import {orange500, blue500} from 'material-ui/styles/colors';
+import {RaisedButton} from 'material-ui';
 
-const styles = {
+import { addEvent } from '../../store/actions.js'
+
+const styles={
   errorStyle: {
     marginLeft: 12,
     color: orange500,
@@ -25,7 +28,7 @@ const styles = {
 class AddEventsForm extends Component {
     constructor(props) {
         super(props);
-        this.state = {
+        this.state={
             eventName: '',
             date: '',
             time: '',
@@ -71,56 +74,68 @@ class AddEventsForm extends Component {
         })
     };
 
+    submitNewEventData = (event) => {
+        console.log('in da submit');
+        event.preventDefault();
+        const addEventAction = addEvent(this.state);
+    }
+
     render() {
         return(
+
             <div>
-              <TextField
-                hintText="Enter here"
-                errorText="This field is required."
-                floatingLabelText="EventName"
-                hintStyle={styles.errorStyle}
-                floatingLabelStyle={styles.floatingLabelStyle}
-                onChange = {this.eventNameInput}
-              /><br />
+                <form onSubmit={this.submitNewEventData}>
+                  <TextField
+                    hintText="Enter here"
+                    errorText="This field is required."
+                    floatingLabelText="EventName"
+                    hintStyle={styles.errorStyle}
+                    floatingLabelStyle={styles.floatingLabelStyle}
+                    onChange={this.eventNameInput}
+                  /><br />
 
-              <TextField
-                hintText="Enter here"
-                errorText="This field is required."
-                floatingLabelText="Date"
-                hintStyle={styles.errorStyle}
-                floatingLabelStyle={styles.floatingLabelStyle}
-                onChange = {this.dateInput}
-              /><br/>
+                  <TextField
+                    hintText="Enter here"
+                    errorText="This field is required."
+                    floatingLabelText="Date"
+                    hintStyle={styles.errorStyle}
+                    floatingLabelStyle={styles.floatingLabelStyle}
+                    onChange={this.dateInput}
+                  /><br/>
 
-              <TextField
-                hintText="Enter here"
-                errorText="This field is required."
-                floatingLabelText="Time"
-                hintStyle={styles.errorStyle}
-                floatingLabelStyle={styles.floatingLabelStyle}
-                onChange = {this.timeInput}
-              /><br />
+                  <TextField
+                    hintText="Enter here"
+                    errorText="This field is required."
+                    floatingLabelText="Time"
+                    hintStyle={styles.errorStyle}
+                    floatingLabelStyle={styles.floatingLabelStyle}
+                    onChange={this.timeInput}
+                  /><br />
 
-              <TextField
-                hintText="Enter here"
-                floatingLabelText="Description"
-                errorStyle={styles.errorStyle}
-                floatingLabelStyle={styles.floatingLabelStyle}
-                onChange = {this.descriptionInput}
-              /><br />
+                  <TextField
+                    hintText="Enter here"
+                    floatingLabelText="Description"
+                    errorStyle={styles.errorStyle}
+                    floatingLabelStyle={styles.floatingLabelStyle}
+                    onChange={this.descriptionInput}
+                  /><br />
 
-              <TextField
-                hintText="Enter here"
-                floatingLabelText="Location"
-                floatingLabelStyle={styles.floatingLabelStyle}
+                  <TextField
+                    hintText="Enter here"
+                    floatingLabelText="Location"
+                    floatingLabelStyle={styles.floatingLabelStyle}
 
-              /><br />
-              <TextField
-                hintText="Enter here"
-                floatingLabelText="open (true / false)"
-                floatingLabelStyle={styles.floatingLabelStyle}
-                onChange = {this.openBooleanInput}
-              /><br />
+                  /><br />
+                  <TextField
+                    hintText="Enter here"
+                    floatingLabelText="open (true / false)"
+                    floatingLabelStyle={styles.floatingLabelStyle}
+                    onChange={this.openBooleanInput}
+                  /><br />
+
+                  {/*SUBMIT BUTTON*/}
+                  <RaisedButton label="Submit (Add Event)" type="submit"/>
+                </form>
             </div>
         )
     }

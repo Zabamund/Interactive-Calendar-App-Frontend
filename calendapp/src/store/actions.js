@@ -88,17 +88,7 @@ export const fetchAllEventData = () => { // action Creator will eventually need 
     }
 }
 
-//fetching a user by ID
-// export const fetchUserDataById = (userID) => {
-//     return(dispatch) => {
-//         return fetch('http://localhost:8080/users/'+userID)
-//             .then(data => data.json())
-//             .then(currentUserObj => {
-//                 console.log('currentUser', currentUserObj);
-//                 dispatch({
-//                     type: USERID,
-//                     data: currentUserObj,
-//                 })
-//             });
-//     }
-// }
+
+export const addEvent = () => {
+    console.log('in da addEvent');
+}
