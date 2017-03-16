@@ -1,6 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import reduxForm from './MaterialUiForm.js';
+import { Paper } from 'material-ui';
+
+import AddEventsForm from '../AddEventsForm';
+
+const EventsFormTitle = {
+
+}
+
+const EventsFormStyle = {
+    height: '80vh',
+    width: '80%',
+}
+
+const FormBox = {
+    display: 'flex',
+    // alignItems: 'center',
+    justifyContent: 'space-around',
+}
+
 
 class AddEvent extends Component {
 
@@ -8,8 +27,15 @@ class AddEvent extends Component {
         console.log('this.props ', this.props);
         return (
             <div>
-                <p> boo ! </p>
-                {/*<reduxForm />*/}
+                <div style={EventsFormTitle} className="App-header">
+                    <h2>Add New Event</h2>
+                </div>
+                <div style={FormBox}>
+                    <Paper style={EventsFormStyle} zDepth={3}>
+                        <AddEventsForm/>
+                        {/*<reduxForm />*/}
+                    </Paper>
+                </div>
             </div>
         )
     };

@@ -8,7 +8,7 @@ function currentUserReducer(state = {}, action) {
         case LOGIN:
         let newState = Object.assign({}, state, action.data);
         newState.token = action.data.token;
-        console.log('NEWSTATE', newState)
+        console.log('NEWSTATE', newState);
             return newState;
         case CURRENTUSER:
             // return token

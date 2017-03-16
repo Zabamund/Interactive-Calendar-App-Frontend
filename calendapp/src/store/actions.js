@@ -56,7 +56,6 @@ export const fetchEventData = () => { // action Creator will eventually need to 
     return(dispatch) => { // returns a function with IS the action
 
         // place to later add the token authorisation
-
         return fetch('http://localhost:8080/events/1')
             .then(data => data.json())
             .then(currentEventObj => {
