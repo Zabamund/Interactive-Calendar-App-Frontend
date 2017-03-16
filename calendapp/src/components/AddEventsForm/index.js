@@ -23,6 +23,54 @@ const styles = {
 };
 
 class AddEventsForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            eventName: '',
+            date: '',
+            time: '',
+            description: '',
+            location: '',
+            open: '',
+        };
+    }
+
+    eventNameInput = (event) => {
+        this.setState({
+            eventName:event.currentTarget.value
+        })
+    };
+
+    dateInput = (event) => {
+        this.setState({
+            date:event.currentTarget.value
+        })
+    };
+
+    timeInput = (event) => {
+        this.setState({
+            time:event.currentTarget.value
+        })
+    };
+
+    descriptionInput = (event) => {
+        this.setState({
+            description:event.currentTarget.value
+        })
+    };
+
+    locationInput = (event) => {
+        this.setState({
+            location:event.currentTarget.value
+        })
+    };
+
+    openBooleanInput = (event) => {
+        this.setState({
+            open:event.currentTarget.value
+        })
+    };
+
     render() {
         return(
             <div>
@@ -32,6 +80,7 @@ class AddEventsForm extends Component {
                 floatingLabelText="EventName"
                 hintStyle={styles.errorStyle}
                 floatingLabelStyle={styles.floatingLabelStyle}
+                onChange = {this.eventNameInput}
               /><br />
 
               <TextField
@@ -40,7 +89,8 @@ class AddEventsForm extends Component {
                 floatingLabelText="Date"
                 hintStyle={styles.errorStyle}
                 floatingLabelStyle={styles.floatingLabelStyle}
-              /><br />
+                onChange = {this.dateInput}
+              /><br/>
 
               <TextField
                 hintText="Enter here"
@@ -48,6 +98,7 @@ class AddEventsForm extends Component {
                 floatingLabelText="Time"
                 hintStyle={styles.errorStyle}
                 floatingLabelStyle={styles.floatingLabelStyle}
+                onChange = {this.timeInput}
               /><br />
 
               <TextField
@@ -55,6 +106,7 @@ class AddEventsForm extends Component {
                 floatingLabelText="Description"
                 errorStyle={styles.errorStyle}
                 floatingLabelStyle={styles.floatingLabelStyle}
+                onChange = {this.descriptionInput}
               /><br />
 
               <TextField
@@ -67,6 +119,7 @@ class AddEventsForm extends Component {
                 hintText="Enter here"
                 floatingLabelText="open (true / false)"
                 floatingLabelStyle={styles.floatingLabelStyle}
+                onChange = {this.openBooleanInput}
               /><br />
             </div>
         )
