@@ -56,13 +56,13 @@ export const fetchEventData = () => { // action Creator will eventually need to 
     return(dispatch) => { // returns a function with IS the action
 
         // place to later add the token authorisation
-        return fetch('http://localhost:8080/events/1')
+        return fetch('http://localhost:8080/events/')
             .then(data => data.json())
-            .then(currentEventObj => {
-                console.log('currentEvent', currentEventObj);
+            .then(allEventsArray => {
+                console.log('all Events', allEventsArray);
                 dispatch({
                     type: EVENTID,
-                    data: currentEventObj,
+                    data: allEventsArray,
                 })
             });
     }

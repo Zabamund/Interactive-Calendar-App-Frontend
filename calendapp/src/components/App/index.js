@@ -5,6 +5,8 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import { login } from '../../store/actions.js';
+import { fetchEventData } from '../../store/actions.js';
+
 
 import './index.css';
 
@@ -41,6 +43,10 @@ class App extends Component {
                     email:'',
                     password:'',
                 });
+            })
+            .then(() => {
+                const getEventDataAction = fetchEventData();
+                this.props.dispatch(getEventDataAction);
             })
             .then(() => { //work with the redux state (this.props.<stateElement>)
                 if (this.props.currentUser.token) {
