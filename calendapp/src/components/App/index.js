@@ -5,7 +5,8 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import { login } from '../../store/actions.js';
-import { fetchEventData } from '../../store/actions.js';
+import { fetchAllEventData } from '../../store/actions.js';
+import { fetchEventDataByUser } from '../../store/actions.js';
 
 
 import './index.css';
@@ -45,7 +46,8 @@ class App extends Component {
                 });
             })
             .then(() => {
-                const getEventDataAction = fetchEventData();
+                const idOfCurrentUser = 1/*this.props.currentUser._id[0]*/; //for now, take first digit of first user, until real fetch is done
+                const getEventDataAction = /*fetchAllEventData*/fetchEventDataByUser(idOfCurrentUser);
                 this.props.dispatch(getEventDataAction);
             })
             .then(() => { //work with the redux state (this.props.<stateElement>)

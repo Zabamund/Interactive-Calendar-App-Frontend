@@ -55,7 +55,6 @@ class CalendarCard extends React.Component {
             </CardMedia>
             <CardTitle title={this.props.title} subtitle={this.props.subtitle} expandable={true} />
             <CardText expandable={true}>
-                Click here to join! (Button to be added)
             </CardText>
             <CardActions>
                 // location of toggle button

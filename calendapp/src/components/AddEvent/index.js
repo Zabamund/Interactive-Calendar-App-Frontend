@@ -24,7 +24,6 @@ const FormBox = {
 class AddEvent extends Component {
 
     render () {
-        console.log('this.props ', this.props);
         return (
             <div>
                 <div style={EventsFormTitle} className="App-header">

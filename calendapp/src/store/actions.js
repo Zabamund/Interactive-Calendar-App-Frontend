@@ -1,13 +1,40 @@
 // actions
 export const LOGIN = 'login';
-export const EVENTID = 'eventId';
+export const FETCHALLEVENTS = 'fetchAllEvents';
+export const FETCHEVENTSFORUSER = 'fetchEventsForUser';
+
 export const USERID = 'userId';
 export const CURRENTUSER = 'currentUser';
 
 // export const ADDEVENT = 'addEvent';
 // export const REGISTERUSER = 'registerUser';
 
-// action creators
+// ACTION CREATORS
+
+export const addEvent = (addEventsFormState) => { //formData is just component state
+    console.log('submitted form data: ', addEventsFormState);
+
+    const myHeaders = new Headers({ //convert entered object into JSON
+        'Content-Type': 'application/json',
+    });
+
+    const config = {
+        method: 'POST',
+        headers: myHeaders,
+        body: JSON.stringify(addEventsFormState),
+    }
+
+    //post request to add new Event to DB
+
+    return fetch('http://localhost:8080/events', config)
+        .then(results => results.json())
+        .then(eventData => {
+            console.log('fetched events', eventData);
+            //typeChecking to follow
+        })
+}
+
+
 export const login = (loginUser) => { // action Creator
     return (dispatch) => { // returns a function which IS the action
 
@@ -52,33 +79,36 @@ export const login = (loginUser) => { // action Creator
     }
 }
 
-export const fetchEventData = () => { // action Creator will eventually need to receive the token for authentication
+
+export const fetchEventDataByUser = (id) => { // action Creator will eventually need to receive the token for authentication
     return(dispatch) => { // returns a function with IS the action
 
         // place to later add the token authorisation
         return fetch('http://localhost:8080/events/')
             .then(data => data.json())
             .then(allEventsArray => {
-                console.log('all Events', allEventsArray);
                 dispatch({
-                    type: EVENTID,
+                    type: FETCHEVENTSFORUSER,
                     data: allEventsArray,
+                    userId: id,
                 })
             });
     }
 }
 
-//fetching a user by ID
-// export const fetchUserDataById = (userID) => {
-//     return(dispatch) => {
-//         return fetch('http://localhost:8080/users/'+userID)
-//             .then(data => data.json())
-//             .then(currentUserObj => {
-//                 console.log('currentUser', currentUserObj);
-//                 dispatch({
-//                     type: USERID,
-//                     data: currentUserObj,
-//                 })
-//             });
-//     }
-// }
+
+
+export const fetchAllEventData = () => { // action Creator will eventually need to receive the token for authentication
+    return(dispatch) => { // returns a function with IS the action
+
+        // place to later add the token authorisation
+        return fetch('http://localhost:8080/events/')
+            .then(data => data.json())
+            .then(allEventsArray => {
+                dispatch({
+                    type: FETCHALLEVENTS,
+                    data: allEventsArray,
+                })
+            });
+    }
+}

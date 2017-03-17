@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { LOGIN, EVENTID, USERID, CURRENTUSER } from './actions';
+import { LOGIN, FETCHALLEVENTS, FETCHEVENTSFORUSER, USERID, CURRENTUSER } from './actions';
 // import { defaultState } from './constants.js'
 
 // one reducer per property of the Redux State
@@ -8,7 +8,6 @@ function currentUserReducer(state = {}, action) {
         case LOGIN:
         let newState = Object.assign({}, state, action.data);
         newState.token = action.data.token;
-        console.log('NEWSTATE', newState);
             return newState;
         case CURRENTUSER:
             // return token
@@ -21,16 +20,28 @@ function currentUserReducer(state = {}, action) {
 
 function eventsReducer(state = [], action) { // defaultState ONLY used during development
     switch (action.type) {
-        case EVENTID:
+        case FETCHALLEVENTS:
             // return token
             // return event(id) object
             let newState = [];
             action.data.forEach( function(eventsObject) {
                 newState.push(eventsObject);
             });
-
-            console.log('newState of Events is', newState);
             return newState;
+
+
+        case FETCHEVENTSFORUSER:
+            const filteredArray = action.data.filter(function(eventsObject) {
+                // console.log('eventsObject ', eventsObject);
+                for(let i = 0; i<eventsObject.participants.length; i++) {
+                    if(eventsObject.participants[i].id===action.userId) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+            return filteredArray;
+
         default:
             return state;
     }

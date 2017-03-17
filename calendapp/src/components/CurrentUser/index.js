@@ -32,7 +32,6 @@ class CurrentUser extends Component {
     }
 
     render() {
-        console.log('zzzzzz', this.props);
         return (
             <div className="CurrentUser">
                 <div style={userName} className="App-header">
