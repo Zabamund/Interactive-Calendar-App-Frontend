@@ -16,12 +16,12 @@ class ParticipantList extends Component {
             <Paper style={PartList} zDepth={3}>
                 <h3>Participants</h3>
                 <List className="participantsList">
-                    {(this.props.events.events[this.props.routeParams].participants)
+                    {(this.props.events[this.props.routeParams].participants)
                         .map((participant, index) => {
                         return(
                         <ListItem
                           key={index}
-                          primaryText={participant.name}
+                          primaryText={participant.firstName + " " + participant.lastName}
                         />
                         )
                         })

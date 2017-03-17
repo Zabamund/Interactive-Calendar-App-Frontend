@@ -29,6 +29,7 @@ export const addEvent = (addEventsFormState) => { //formData is just component s
     return fetch('http://localhost:8080/events', config)
         .then(results => results.json())
         .then(eventData => {
+            console.log('config ', config);
             console.log('fetched events', eventData);
             //typeChecking to follow
         })
