@@ -11,8 +11,8 @@ class EventId extends Component {
         return(
             <div className="EventCard">
                 <div className="Party-header">
-                    <h1> {this.props.events.events[parseInt(this.props.routeParams.eventId, 10)].eventName +", "+ this.props.events.events[parseInt(this.props.routeParams.eventId, 10)].location.city} </h1>
-                    <h3> {this.props.events.events[parseInt(this.props.routeParams.eventId, 10)].date} </h3>
+                    <h1> {this.props.events[parseInt(this.props.routeParams.eventId, 10)].eventName +", "+ this.props.events[parseInt(this.props.routeParams.eventId, 10)].location.city} </h1>
+                    <h3> {this.props.events[parseInt(this.props.routeParams.eventId, 10)].date} </h3>
                 </div>
                 <div className="Content" style={Content} >
                     <ParticipantList routeParams={this.props.routeParams.eventId} />
