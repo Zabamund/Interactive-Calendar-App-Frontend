@@ -41,14 +41,54 @@ class AddEventsForm extends Component {
 
         //attempt to re-create format given in the API
         this.state = {
-            id: '', //set when saving in DB
+            id: Math.floor(Math.random()*10000), //set when saving in DB
             eventName: 'New Event', //default
-            date: '2017,12,31', //default
-            time: ['0,0'], //default
+            date: [ 2017,12,31 ], //default
+            time: [ 0,0 ], //default
             description: 'Lets have some fun!', //default
-            creator: this.props.currentUser, //must be the current user :)
-            participants: [this.props.currentUser], //default
-            location: 'secret', //default //should be an object.
+            // creator: this.props.currentUser, //must be the current user :)
+            creator: {
+                "id": 10,
+                "firstName": "Christy",
+                "lastName": "Pew",
+                "email": "fake10@fake.com",
+                "image": null
+            },
+            // participants: [this.props.currentUser], //default
+            participants: [
+                {
+                    "id": 10,
+                    "firstName": "Christy",
+                    "lastName": "Pew",
+                    "email": "fake10@fake.com",
+                    "image": null
+                },
+                {
+                    "id": 2,
+                    "firstName": "Jenny",
+                    "lastName": "Jade",
+                    "email": "fake2@fake.com",
+                    "image": null
+                },
+                {
+                    "id": 1,
+                    "firstName": "Lola",
+                    "lastName": "Lolly",
+                    "email": "fake1@fake.com",
+                    "image": null
+                }
+            ],
+            // location: 'secret', //default //should be an object.
+            location: {
+                "id": 12,
+                "street": "Alphaweg",
+                "streetNO": "122",
+                "postalCode": "80045",
+                "city": "LalaCity",
+                "country": "LalaLand",
+                "latitude": null,
+                "longitude": null
+            },
             open: 'false', //default //improve button label!
             image: 'http://www.citi.io/wp-content/uploads/2015/08/1168-00-06.jpg', //default
         };
@@ -58,6 +98,8 @@ class AddEventsForm extends Component {
     submitNewEventData = (event) => {
         event.preventDefault();
         const addEventAction = addEvent(this.state); //store/action.js
+        console.log('this.state inside the form ', this.state);
+        console.log('this.props ', this.props);
         //continue here! addEventAction is assigned a value but never use
     }
 
